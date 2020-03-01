@@ -1,4 +1,4 @@
 package Projekt.Projekt.Characters;
 
-public class Dumb {
+public class Dumb extends Enemy {
 }
