@@ -5,34 +5,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.security.Key;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 //States
 //Buffra bilder
 //Keyboard input för röra sig med piltangenterna
 
-public class MyFrame extends JFrame {
+public class GameFrame extends JFrame {
 
-    private static Scanner keyboard;
     private DrawingArea area;
     private ArrayList<Image> beamList = new ArrayList<>();
-    //private Key lastmovement;
-    private boolean direction; //true right
 
-    public MyFrame() {
-        super("Window");
-        keyboard = new Scanner(System.in);
+    public GameFrame(GameModel model) {
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setResizable(false);
         this.setSize(1600, 800);
         DrawingArea area = new DrawingArea();
         this.add(area);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         this.setVisible(true);
+        playMusic("sounds/Tanks Loop.wav",true);
     }
 
-    private static Clip playASound(String path, boolean repeat) {
+    private static Clip playMusic(String path, boolean repeat) {
         AudioInputStream audioIn;
 
         try {
@@ -55,21 +49,5 @@ public class MyFrame extends JFrame {
             e.printStackTrace();
         }
         return null;
-    }
-
-
-    public static void main(String[] args) throws IOException {
-        MyFrame frame = new MyFrame();
-        String cmd;
-        playASound("Tanks Loop.wav",true);
-
-        do {
-            //frame.area.updateYourself();
-            try {
-                Thread.sleep(20);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        } while (true);
     }
 }

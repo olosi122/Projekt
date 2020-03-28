@@ -1,4 +1,4 @@
 package Projekt.Projekt;
 
-public class Game {
+public class GameModel {
 }
