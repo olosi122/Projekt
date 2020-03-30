@@ -1,17 +1,14 @@
-package Projekt.Projekt;
+package Projekt.Projekt.Operation;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
-import static Projekt.Projekt.Constants.S_HEIGHT;
-import static Projekt.Projekt.Constants.S_WIDTH;
+import static Projekt.Projekt.Operation.Constants.S_HEIGHT;
+import static Projekt.Projekt.Operation.Constants.S_WIDTH;
 
 //Buffra bilder
-//Keyboard input för röra sig med piltangenterna
 
 public class GameFrame extends JFrame {
 
@@ -20,7 +17,6 @@ public class GameFrame extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setSize(S_WIDTH, S_HEIGHT);
-        DrawingArea area = new DrawingArea();
         this.add(new GamePanel(model));
         this.setVisible(true);
         //playMusic("sounds/Tanks Loop.wav",true);

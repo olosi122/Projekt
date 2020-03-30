@@ -2,14 +2,14 @@ package Projekt.Projekt.States;
 
 import Projekt.Projekt.Characters.Beam;
 import Projekt.Projekt.Characters.Enemy;
-import Projekt.Projekt.GameModel;
+import Projekt.Projekt.Operation.GameModel;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import static Projekt.Projekt.Constants.S_HEIGHT;
-import static Projekt.Projekt.Constants.S_WIDTH;
+import static Projekt.Projekt.Operation.Constants.S_HEIGHT;
+import static Projekt.Projekt.Operation.Constants.S_WIDTH;
 
 public class Level1 extends GameState {
 

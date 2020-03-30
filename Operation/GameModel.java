@@ -1,4 +1,4 @@
-package Projekt.Projekt;
+package Projekt.Projekt.Operation;
 
 import Projekt.Projekt.Characters.Beam;
 import Projekt.Projekt.Characters.Dumb;

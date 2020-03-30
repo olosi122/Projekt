@@ -1,9 +1,11 @@
-package Projekt.Projekt;
+package Projekt.Projekt.Operation;
+
+import Projekt.Projekt.Operation.GameFrame;
+import Projekt.Projekt.Operation.GameModel;
 
 import java.awt.*;
-import java.util.Timer;
 
-import static Projekt.Projekt.Constants.ms;
+import static Projekt.Projekt.Operation.Constants.ms;
 
 public class Main {
 

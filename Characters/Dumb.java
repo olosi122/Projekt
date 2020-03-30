@@ -2,7 +2,7 @@ package Projekt.Projekt.Characters;
 
 import java.awt.*;
 
-import static Projekt.Projekt.Constants.S_WIDTH;
+import static Projekt.Projekt.Operation.Constants.S_WIDTH;
 
 public class Dumb extends Enemy {
 
