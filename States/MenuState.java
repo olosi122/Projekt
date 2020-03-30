@@ -1,4 +1,8 @@
-package Projekt.Projekt;
+package Projekt.Projekt.States;
+
+import Projekt.Projekt.GameModel;
+import Projekt.Projekt.States.GameState;
+import Projekt.Projekt.States.Level1;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -11,12 +15,7 @@ public class MenuState extends GameState {
     private Color bgColor;
     private Color fontColor;
 
-    /**
-     * The following three variables are just used to show that a
-     * change of state can be made. The same variables also exist
-     * in the PlayState, can you think of a way to make this more
-     * general and not duplicate variables?????
-     */
+
     public MenuState(GameModel model) {
         super(model);
 

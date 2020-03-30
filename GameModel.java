@@ -1,5 +1,8 @@
 package Projekt.Projekt;
 
+import Projekt.Projekt.States.GameState;
+import Projekt.Projekt.States.MenuState;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -21,9 +24,9 @@ public class GameModel {
      * 'activate' on the new current state.
      */
     public void switchState(GameState nextState) {
-        currentState.deactivate();
+        //currentState.deactivate();
         currentState = nextState;
-        currentState.activate();
+        //currentState.activate();
     }
 
     /**

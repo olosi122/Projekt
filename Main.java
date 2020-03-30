@@ -18,7 +18,7 @@ public class Main {
 
             long lastTime = System.currentTimeMillis();
 
-            //model.update();
+            model.update();
             frame.repaint();
 
             long timer = System.currentTimeMillis() - lastTime;

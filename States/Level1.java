@@ -1,4 +1,7 @@
-package Projekt.Projekt;
+package Projekt.Projekt.States;
+
+import Projekt.Projekt.GameModel;
+import Projekt.Projekt.Tester;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

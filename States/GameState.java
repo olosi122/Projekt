@@ -1,4 +1,6 @@
-package Projekt.Projekt;
+package Projekt.Projekt.States;
+
+import Projekt.Projekt.GameModel;
 
 import java.awt.*;
 
@@ -24,8 +26,8 @@ public abstract class GameState {
         g.fillRect(0, 0, S_WIDTH, S_HEIGHT);
     }
 
-    public void activate() { ; }
+    public void activate() {}
 
-    public void deactivate() { ; }
+    public void deactivate() {}
 }
 

@@ -15,14 +15,6 @@ public class GamePanel extends JPanel {
 
     public GamePanel(final GameModel model) {
         this.model = model;
-        /*
-            Sets the preferred size of the panel.
-            setPreferredSize() is used instead of setSize()
-            because of JFrame's pack() function.
-
-            For more information about this read about pack() / setPreferredSize()
-            in JavaDocs online or see comments about pack() in /src/main/GameFrame()
-         */
 
         this.setPreferredSize(new Dimension(S_WIDTH, S_HEIGHT));
         this.setFocusable(true); // IMPORTANT: makes it possible for this class to handle keyboard input.
