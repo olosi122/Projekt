@@ -3,11 +3,14 @@ package Projekt.Projekt;
 import Projekt.Projekt.Characters.Beam;
 import Projekt.Projekt.Characters.Dumb;
 import Projekt.Projekt.Characters.Enemy;
+import Projekt.Projekt.Maps.Level;
 import Projekt.Projekt.States.GameState;
+import Projekt.Projekt.States.Level1;
 import Projekt.Projekt.States.MenuState;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GameModel {
 
@@ -35,10 +38,11 @@ public class GameModel {
 
     /**
      * Delegates the keyPress from GamePanel to the current state
+     *
      * @param key
      */
     public void keyPressed(int key) {
-        currentState.keyPressed(key,this);
+        currentState.keyPressed(key, this);
     }
 
     /**
@@ -46,7 +50,7 @@ public class GameModel {
      * it's usually used to update the games logic e.g. objects position, velocity, etc...
      */
     public void update() {
-        currentState.update(this, enemyList,beamList);
+        currentState.update(this, enemyList, beamList);
     }
 
     public void addEnemy(int y) {
@@ -57,7 +61,7 @@ public class GameModel {
     }
 
     public void addBeam() {
-        this.beamList.add(new Beam(currentState.getX(),currentState.getY(),currentState.getDir()));
+        this.beamList.add(new Beam(currentState.getX(), currentState.getY(), currentState.getDir()));
     }
 
 
@@ -66,12 +70,28 @@ public class GameModel {
      *          This function delegates drawing from the GamePanel to the current state
      */
     public void draw(Graphics g) {
-        currentState.draw(g, enemyList,beamList);
+        currentState.draw(g, enemyList, beamList);
     }
 
     public void checkCollision() {
-        for (Beam beam, Enemy enemy : beamList, enemyList) {
-            Rectangle rec1 = new Rectangle(beam.getX(),beam.getY(),beam.getWidth(),beam.getHight());
+        Iterator itrb = beamList.iterator();
+        Iterator itre = enemyList.iterator();
+        while (itrb.hasNext()) {
+            Beam beam = (Beam) itrb.next();
+            while (itre.hasNext()) {
+                Enemy enemy = (Enemy) itre.next();
+                Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHight());
+                Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHight());
+                Rectangle player = new Rectangle(currentState.getX(),currentState.getY(),50,50);
+                if (rec2.intersects(player)) {
+                    //GameOver
+                    switchState(new MenuState(this));
+                }
+                if (rec1.intersects(rec2)) {
+                    itrb.remove();
+                    itre.remove();
+                }
+            }
         }
     }
 }

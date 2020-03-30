@@ -16,7 +16,7 @@ public class Level1 extends GameState {
     private String informationText;
     private Color bgColor;
     private Color fontColor;
-    private Point point;
+    private Point point; //player
     private long start = 0;
     private boolean jump = false;
     private double x = 0;
@@ -39,7 +39,7 @@ public class Level1 extends GameState {
         g.drawString(informationText, (S_WIDTH / 2) - 200, S_HEIGHT / 2);
 
         g.setColor(Color.black);
-        g.fillOval(point.x, point.y, 50, 50);
+        g.fillOval(point.x, point.y, 50, 50); //Player
 
         for (Enemy enemy: enemies) {
         enemy.draw(g);
@@ -130,7 +130,6 @@ public class Level1 extends GameState {
             if (point.y>S_HEIGHT-100) {
                 this.jump=false;
                 x=0;
-                System.out.println(x);
                 point.y=S_HEIGHT-100;
             }
         }

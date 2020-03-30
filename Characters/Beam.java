@@ -8,8 +8,9 @@ public class Beam {
     private int width = 20;
     private int hight = 10;
     private boolean dir;
-    private int point_x=0;
-    private int point_y=0;
+    private int point_x = 0;
+    private int point_y = 0;
+    private boolean remove = false;
     //private Point point;
 
     public Beam(int x, int y, boolean dir) {
@@ -20,7 +21,7 @@ public class Beam {
     }
 
     public void update() {
-        if (dir==true) {
+        if (dir == true) {
             this.point_x += 1;
             //Until remove from list
         } else {

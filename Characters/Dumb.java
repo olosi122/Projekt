@@ -7,14 +7,40 @@ public class Dumb extends Enemy {
     private int size = 50;
     private Color color = Color.CYAN;
     private Point point = new Point(0,0);
+    private boolean right;
 
-    public Dumb(int y) {
-        this.point.x=0;
+    public Dumb(boolean right, int y) {
+        this.right=right;
+        if (right) {
+            this.point.x = 1600;
+        } else {
+            this.point.x = 0;
+        }
         this.point.y=y;
     }
 
     public void update() {
-        this.point.x +=1;
+        if (this.right) {
+            this.point.x -= 1;
+        } else {
+            this.point.x += 1;
+        }
+    }
+
+    public int getX() {
+        return this.point.x;
+    }
+
+    public int getY() {
+        return this.point.y;
+    }
+
+    public int getWidth() {
+        return this.size;
+    }
+
+    public int getHight() {
+        return this.size;
     }
 
     @Override
