@@ -1,10 +1,13 @@
 package Projekt.Projekt;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GameModel {
 
     private GameState currentState;
+
+    private ArrayList<Image> beamList = new ArrayList<>();
 
     public GameModel() {
         this.currentState = new MenuState(this);

@@ -10,23 +10,20 @@ import java.util.ArrayList;
 import static Projekt.Projekt.Constants.S_HEIGHT;
 import static Projekt.Projekt.Constants.S_WIDTH;
 
-//States
 //Buffra bilder
 //Keyboard input för röra sig med piltangenterna
 
 public class GameFrame extends JFrame {
 
-    private DrawingArea area;
-    private ArrayList<Image> beamList = new ArrayList<>();
 
     public GameFrame(GameModel model) {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setSize(S_WIDTH, S_HEIGHT);
         DrawingArea area = new DrawingArea();
-        this.add(area);
+        this.add(new GamePanel(model));
         this.setVisible(true);
-        playMusic("sounds/Tanks Loop.wav",true);
+        //playMusic("sounds/Tanks Loop.wav",true);
     }
 
     private static Clip playMusic(String path, boolean repeat) {
