@@ -73,9 +73,7 @@ public class Level1 extends GameState {
             //Will not do anything
             //Kollision with platforms for stop falling
             //then cant jump/drop through them
-        else if (key == KeyEvent.VK_SPACE) {
-            //Shoot
-        }
+
     }
 
     /**

@@ -2,6 +2,8 @@ package Projekt.Projekt.Characters;
 
 import java.awt.*;
 
+import static Projekt.Projekt.Constants.S_WIDTH;
+
 public class Dumb extends Enemy {
 
     private int size = 50;
@@ -12,7 +14,7 @@ public class Dumb extends Enemy {
     public Dumb(boolean right, int y) {
         this.right=right;
         if (right) {
-            this.point.x = 1600;
+            this.point.x = S_WIDTH;
         } else {
             this.point.x = 0;
         }

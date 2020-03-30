@@ -18,6 +18,7 @@ public class GameModel {
     private ArrayList<Enemy> enemyList = new ArrayList<>();
     private ArrayList<Beam> beamList = new ArrayList<>();
     private long master = System.currentTimeMillis();
+    private boolean right = false;
 
     public GameModel() {
         this.currentState = new MenuState(this);
@@ -55,7 +56,13 @@ public class GameModel {
 
     public void addEnemy(int y) {
         if (System.currentTimeMillis() - master > 1000) {
-            enemyList.add(new Dumb(y));
+            if (right) {
+                enemyList.add(new Dumb(true,y));
+                right=false;
+            } else {
+                enemyList.add(new Dumb(false,y));
+                right=true;
+            }
             master = System.currentTimeMillis();
         }
     }
