@@ -6,7 +6,7 @@ public class Dumb extends Enemy {
 
     private int size = 50;
     private Color color = Color.CYAN;
-    private Point point;
+    private Point point = new Point(0,0);
 
     public Dumb(int y) {
         this.point.x=0;
@@ -20,7 +20,7 @@ public class Dumb extends Enemy {
     @Override
     public void draw(Graphics g) {
         g.setColor(this.color);
-        g.drawOval(this.point.x,this.point.y, size,size);
+        g.fillOval(this.point.x,this.point.y, size,size);
     }
 
     public class Point {

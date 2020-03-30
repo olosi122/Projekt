@@ -20,15 +20,13 @@ public class Level1 extends GameState {
     private boolean jump = false;
     private double x = 0;
     private boolean dir = true;
-    private Enemy enemy;
-
 
     public Level1(GameModel model) {
         super(model);
         informationText = "Press Escape To Return To The Menu";
         bgColor = new Color(78, 87, 100);
         fontColor = new Color(123, 178, 116);
-        this.point = new Point(50, S_HEIGHT - 100);
+        this.point = new Point(500, S_HEIGHT - 100);
     }
 
     @Override
@@ -63,24 +61,25 @@ public class Level1 extends GameState {
         } else if (key == KeyEvent.VK_UP) {
             this.start = System.currentTimeMillis();
             this.jump = true;
-        } else if (key == KeyEvent.VK_DOWN && point.y < S_HEIGHT - 100) {
+        } //else if (key == KeyEvent.VK_DOWN && point.y < S_HEIGHT - 100) {
             //Will not do anything
             //Kollision with platforms for stop falling
             //then cant jump/drop through them
-        } else if (key == KeyEvent.VK_SPACE) {
+        else if (key == KeyEvent.VK_SPACE) {
             //Shoot
         }
     }
 
+
+
     @Override
-    public void update() {
-
-        
-
+    public void update(GameModel model, ArrayList<Enemy> enemies) {
         //Use this one when jumping, cause it will need to carry out for a while during which other movements can be made
-        //point.x=point.x+1;
-        //point.y=point.y+1;
         //tester.delegate(null);
+        model.addEnemy(point.y);
+        for (Enemy enemy: enemies) {
+            enemy.update();
+        }
         if (jump == true) {
             if (dir==true) {
                 //long x = (System.currentTimeMillis() - start)/1000;
@@ -99,6 +98,7 @@ public class Level1 extends GameState {
             /**
              * Needs reworking later
              */
+
             if (point.y>S_HEIGHT-100) {
                 this.jump=false;
                 x=0;

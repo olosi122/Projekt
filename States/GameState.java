@@ -17,7 +17,7 @@ public abstract class GameState {
         this.model = model;
     }
 
-    public abstract void update();
+    public abstract void update(GameModel model, ArrayList<Enemy> enemies);
 
     public abstract void draw(Graphics g, ArrayList<Enemy> enemies);
 

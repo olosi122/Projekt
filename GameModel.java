@@ -1,5 +1,6 @@
 package Projekt.Projekt;
 
+import Projekt.Projekt.Characters.Dumb;
 import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.States.GameState;
 import Projekt.Projekt.States.MenuState;
@@ -12,6 +13,7 @@ public class GameModel {
     private GameState currentState;
     private ArrayList<Enemy> enemies = new ArrayList<>();
     private ArrayList<Image> beamList = new ArrayList<>();
+    private long master = System.currentTimeMillis();
 
     public GameModel() {
         this.currentState = new MenuState(this);
@@ -43,8 +45,16 @@ public class GameModel {
      * it's usually used to update the games logic e.g. objects position, velocity, etc...
      */
     public void update() {
-        currentState.update();
+        currentState.update(this,enemies);
     }
+
+    public void addEnemy(int y) {
+        System.out.println(System.currentTimeMillis());
+        if (System.currentTimeMillis()-master > 1000)
+            enemies.add(new Dumb(y));
+        master = System.currentTimeMillis();
+    }
+
 
     /**
      * @param g Graphics object passed from GamePanel
