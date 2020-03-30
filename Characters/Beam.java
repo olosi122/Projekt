@@ -2,6 +2,8 @@ package Projekt.Projekt.Characters;
 
 import java.awt.*;
 
+import static Projekt.Projekt.Operation.Constants.S_WIDTH;
+
 public class Beam {
 
     private Color color = Color.RED;
@@ -22,8 +24,11 @@ public class Beam {
 
     public void update() {
         if (dir == true) {
+            if (point_x == S_WIDTH) {
+                //remove from list
+                //model.remove(this);
+            }
             this.point_x += 1;
-            //Until remove from list
         } else {
             this.point_x -= 1;
             //Until remove from list

@@ -8,8 +8,6 @@ import java.io.IOException;
 import static Projekt.Projekt.Operation.Constants.S_HEIGHT;
 import static Projekt.Projekt.Operation.Constants.S_WIDTH;
 
-//Buffra bilder
-
 public class GameFrame extends JFrame {
 
 
