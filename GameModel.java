@@ -1,5 +1,6 @@
 package Projekt.Projekt;
 
+import Projekt.Projekt.Characters.Beam;
 import Projekt.Projekt.Characters.Dumb;
 import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.States.GameState;
@@ -11,8 +12,8 @@ import java.util.ArrayList;
 public class GameModel {
 
     private GameState currentState;
-    private ArrayList<Enemy> enemies = new ArrayList<>();
-    private ArrayList<Image> beamList = new ArrayList<>();
+    private ArrayList<Enemy> enemyList = new ArrayList<>();
+    private ArrayList<Beam> beamList = new ArrayList<>();
     private long master = System.currentTimeMillis();
 
     public GameModel() {
@@ -37,7 +38,7 @@ public class GameModel {
      * @param key
      */
     public void keyPressed(int key) {
-        currentState.keyPressed(key);
+        currentState.keyPressed(key,this);
     }
 
     /**
@@ -45,15 +46,18 @@ public class GameModel {
      * it's usually used to update the games logic e.g. objects position, velocity, etc...
      */
     public void update() {
-        currentState.update(this, enemies);
+        currentState.update(this, enemyList);
     }
 
     public void addEnemy(int y) {
-        System.out.println(System.currentTimeMillis());
         if (System.currentTimeMillis() - master > 1000) {
-            enemies.add(new Dumb(y));
+            enemyList.add(new Dumb(y));
             master = System.currentTimeMillis();
         }
+    }
+
+    public void addBeam(int x, int y) {
+        this.beamList.add(new Beam(currentState.getX(),currentState.getY(),currentState.getDir()));
     }
 
 
@@ -62,6 +66,6 @@ public class GameModel {
      *          This function delegates drawing from the GamePanel to the current state
      */
     public void draw(Graphics g) {
-        currentState.draw(g, enemies);
+        currentState.draw(g, enemyList);
     }
 }

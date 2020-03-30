@@ -46,7 +46,7 @@ public class Level1 extends GameState {
     }
 
     @Override
-    public void keyPressed(int key) {
+    public void keyPressed(int key, GameModel model) {
         System.out.println("Trycker på " + KeyEvent.getKeyText(key) + " i PlayState");
         //System.out.println(key); //an integer connected with every keybord button
 
@@ -61,7 +61,10 @@ public class Level1 extends GameState {
         } else if (key == KeyEvent.VK_UP) {
             this.start = System.currentTimeMillis();
             this.jump = true;
-        } //else if (key == KeyEvent.VK_DOWN && point.y < S_HEIGHT - 100) {
+        } else if (key == KeyEvent.VK_SPACE) {
+
+        }
+            //else if (key == KeyEvent.VK_DOWN && point.y < S_HEIGHT - 100) {
             //Will not do anything
             //Kollision with platforms for stop falling
             //then cant jump/drop through them
@@ -70,10 +73,24 @@ public class Level1 extends GameState {
         }
     }
 
+    /**
+     * This one is going into player with many other things
+     */
+    public int getX() {
+        return this.point.x;
+    }
+
+    public int getY() {
+        return this.point.y;
+    }
+
+    public boolean getDir() {
+        return this.dir;
+    }
 
 
     @Override
-    public void update(GameModel model, ArrayList<Enemy> enemies) {
+    public void update(GameModel model,ArrayList<Enemy> enemies) {
         //Use this one when jumping, cause it will need to carry out for a while during which other movements can be made
         //tester.delegate(null);
         model.addEnemy(point.y);

@@ -11,7 +11,7 @@ import static Projekt.Projekt.Constants.S_HEIGHT;
 
 public abstract class GameState {
 
-    protected GameModel model;
+    private GameModel model;
 
     public GameState(GameModel model) {
         this.model = model;
@@ -21,12 +21,21 @@ public abstract class GameState {
 
     public abstract void draw(Graphics g, ArrayList<Enemy> enemies);
 
-    public abstract void keyPressed(int key);
+    public abstract void keyPressed(int key,GameModel model);
 
     public void drawBg(Graphics g, Color color) {
         g.setColor(color);
         g.fillRect(0, 0, S_WIDTH, S_HEIGHT);
     }
+
+    public int getX(){ return 0;}
+
+    /**
+     * This one is going into player with many other things
+     */
+    public int getY() {return 0;}
+
+    public boolean getDir(){return true;}
 
     public void activate() {}
 

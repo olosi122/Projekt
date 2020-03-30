@@ -37,7 +37,7 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void keyPressed(int key) {
+    public void keyPressed(int key, GameModel model) {
         System.out.println("Trycker på " + KeyEvent.getKeyText(key) + " i MenuState");
 
         if (key == KeyEvent.VK_ENTER)
