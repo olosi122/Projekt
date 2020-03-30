@@ -13,6 +13,7 @@ import Projekt.Projekt.States.MenuState;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameModel {
@@ -69,28 +70,31 @@ public class GameModel {
     }
 
     public void checkCollision() {
-        Iterator itrb = beamList.iterator();
-        Iterator itre = enemyList.iterator();
-        Rectangle player = new Rectangle(currentState.getX(), currentState.getY(), 50, 50);
+        Iterator<Beam> itrb = beamList.iterator();
+        Iterator<Enemy> itre = enemyList.iterator();
         //Jag låser thred och tittar bara på första skottet
-        while (itrb.hasNext()) {
-            Beam beam = (Beam) itrb.next();
-            while (itre.hasNext()) {
-                Enemy enemy = (Enemy) itre.next();
-                Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHight());
-                Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHight());
-                if (rec2.intersects(player)) {
-                    //switchState(new MenuState(this));
-                }
-                if (rec1.intersects(rec2)) {
-                    itrb.remove();
-                    itre.remove();
-                    beamList=new ArrayList<>(); //första pilen måste träffa inna de andra gör
+        for (Enemy enemy:enemyList) {
+        //while (itre.hasNext()) {
+            //Beam beam = (Beam) itrb.next();
+            //Enemy enemy = (Enemy) itre.next();
+            //System.out.println(beam);
+            System.out.println(enemy);
+            //Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHight());
+            Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHight());
+            System.out.println(enemy.getX());
+            System.out.println(enemy.getY());
+            Rectangle player = new Rectangle(currentState.getX(), currentState.getY(), 50, 50);
 
-
-                }
+            if (rec2.intersects(player)) {
+                System.out.println("Trigger");
+                switchState(new MenuState(this));
             }
+            //if (rec1.intersects(rec2)) {
+            //   itrb.remove();
+            // itre.remove();
         }
+    }
+}
         /*
         Iterator iterp = platList.iterator();
         while (iterp.hasNext()) {
@@ -101,5 +105,5 @@ public class GameModel {
             }
 
          */
-    }
-}
+
+
