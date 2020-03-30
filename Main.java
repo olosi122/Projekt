@@ -1,6 +1,7 @@
 package Projekt.Projekt;
 
 import java.awt.*;
+import java.util.Timer;
 
 import static Projekt.Projekt.Constants.ms;
 
@@ -29,7 +30,7 @@ public class Main {
                 Thread.sleep((long) Math.max(ms - timer, 0));
             } catch (InterruptedException e) {
                 System.out.println("time delay");
-                System.out.println(ms-timer);
+                System.out.println(ms - timer);
             }
         }
     }

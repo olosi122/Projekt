@@ -1,11 +1,11 @@
 package Projekt.Projekt.States;
 
+import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.GameModel;
-import Projekt.Projekt.States.GameState;
-import Projekt.Projekt.States.Level1;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import static Projekt.Projekt.Constants.S_HEIGHT;
 import static Projekt.Projekt.Constants.S_WIDTH;
@@ -28,7 +28,7 @@ public class MenuState extends GameState {
     Draws information text to the screen
     */
     @Override
-    public void draw(Graphics g) {
+    public void draw(Graphics g, ArrayList<Enemy> enemies) {
         drawBg(g, bgColor);
 
         g.setColor(fontColor);

@@ -1,5 +1,6 @@
 package Projekt.Projekt;
 
+import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.States.GameState;
 import Projekt.Projekt.States.MenuState;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 public class GameModel {
 
     private GameState currentState;
-
+    private ArrayList<Enemy> enemies = new ArrayList<>();
     private ArrayList<Image> beamList = new ArrayList<>();
 
     public GameModel() {
@@ -50,6 +51,6 @@ public class GameModel {
      *          This function delegates drawing from the GamePanel to the current state
      */
     public void draw(Graphics g) {
-        currentState.draw(g);
+        currentState.draw(g,enemies);
     }
 }

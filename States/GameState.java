@@ -1,8 +1,10 @@
 package Projekt.Projekt.States;
 
+import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.GameModel;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 import static Projekt.Projekt.Constants.S_WIDTH;
 import static Projekt.Projekt.Constants.S_HEIGHT;
@@ -17,7 +19,7 @@ public abstract class GameState {
 
     public abstract void update();
 
-    public abstract void draw(Graphics g);
+    public abstract void draw(Graphics g, ArrayList<Enemy> enemies);
 
     public abstract void keyPressed(int key);
 

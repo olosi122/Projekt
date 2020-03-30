@@ -1,4 +1,12 @@
 package Projekt.Projekt.Characters;
 
-public class Enemy {
+import java.awt.*;
+
+public abstract class Enemy {
+
+    public Enemy() {
+
+    }
+
+    public abstract void draw(Graphics g);
 }
