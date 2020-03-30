@@ -21,7 +21,7 @@ public class GameModel {
 
     /**
      * Switch to a new state, stored in the 'state' reference.
-     *
+     * <p>
      * This will call 'deactivate' on the current state,
      * then store the new state as the current state, and finally call
      * 'activate' on the new current state.
@@ -45,14 +45,15 @@ public class GameModel {
      * it's usually used to update the games logic e.g. objects position, velocity, etc...
      */
     public void update() {
-        currentState.update(this,enemies);
+        currentState.update(this, enemies);
     }
 
     public void addEnemy(int y) {
         System.out.println(System.currentTimeMillis());
-        if (System.currentTimeMillis()-master > 1000)
+        if (System.currentTimeMillis() - master > 1000) {
             enemies.add(new Dumb(y));
-        master = System.currentTimeMillis();
+            master = System.currentTimeMillis();
+        }
     }
 
 
@@ -61,6 +62,6 @@ public class GameModel {
      *          This function delegates drawing from the GamePanel to the current state
      */
     public void draw(Graphics g) {
-        currentState.draw(g,enemies);
+        currentState.draw(g, enemies);
     }
 }
