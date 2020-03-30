@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static Projekt.Projekt.Constants.S_HEIGHT;
+import static Projekt.Projekt.Constants.S_WIDTH;
+
 //States
 //Buffra bilder
 //Keyboard input för röra sig med piltangenterna
@@ -19,7 +22,7 @@ public class GameFrame extends JFrame {
     public GameFrame(GameModel model) {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(1600, 800);
+        this.setSize(S_WIDTH, S_HEIGHT);
         DrawingArea area = new DrawingArea();
         this.add(area);
         this.setVisible(true);

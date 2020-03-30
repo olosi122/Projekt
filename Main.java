@@ -14,7 +14,7 @@ public class Main {
         GameModel model = new GameModel();
         GameFrame frame = new GameFrame(model);
 
-        while (gameover == false || winner == false) {
+        while (!gameover || !winner) {
 
             long lastTime = System.currentTimeMillis();
 
@@ -33,5 +33,4 @@ public class Main {
             }
         }
     }
-
 }
