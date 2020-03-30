@@ -46,7 +46,7 @@ public class GameModel {
      * it's usually used to update the games logic e.g. objects position, velocity, etc...
      */
     public void update() {
-        currentState.update(this, enemyList);
+        currentState.update(this, enemyList,beamList);
     }
 
     public void addEnemy(int y) {
@@ -56,7 +56,7 @@ public class GameModel {
         }
     }
 
-    public void addBeam(int x, int y) {
+    public void addBeam() {
         this.beamList.add(new Beam(currentState.getX(),currentState.getY(),currentState.getDir()));
     }
 
@@ -66,6 +66,12 @@ public class GameModel {
      *          This function delegates drawing from the GamePanel to the current state
      */
     public void draw(Graphics g) {
-        currentState.draw(g, enemyList);
+        currentState.draw(g, enemyList,beamList);
+    }
+
+    public void checkCollision() {
+        for (Beam beam, Enemy enemy : beamList, enemyList) {
+            Rectangle rec1 = new Rectangle(beam.getX(),beam.getY(),beam.getWidth(),beam.getHight());
+        }
     }
 }

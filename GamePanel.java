@@ -17,22 +17,12 @@ public class GamePanel extends JPanel {
         this.model = model;
 
         this.setPreferredSize(new Dimension(S_WIDTH, S_HEIGHT));
-        this.setFocusable(true); // IMPORTANT: makes it possible for this class to handle keyboard input.
+        this.setFocusable(true);
 
-        /*
-            Adds an anonymous Class KeyAdapter.
-            This class is responsible for handling keyPressed events in the GamePanel.
-
-            Another way to do this is by
-            implementing the KeyListener Interface.
-            For this example however it was not needed
-            since i only use one of three functions in the interface.
-         */
         this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
-
                 model.keyPressed(e.getKeyCode());
             }
         });

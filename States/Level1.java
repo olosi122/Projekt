@@ -1,5 +1,6 @@
 package Projekt.Projekt.States;
 
+import Projekt.Projekt.Characters.Beam;
 import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.GameModel;
 
@@ -30,7 +31,7 @@ public class Level1 extends GameState {
     }
 
     @Override
-    public void draw(Graphics g, ArrayList<Enemy> enemies) {
+    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
         drawBg(g, bgColor);
 
         g.setColor(fontColor);
@@ -42,6 +43,10 @@ public class Level1 extends GameState {
 
         for (Enemy enemy: enemies) {
         enemy.draw(g);
+        }
+
+        for (Beam beam : beamList) {
+            beam.draw(g);
         }
     }
 
@@ -62,7 +67,7 @@ public class Level1 extends GameState {
             this.start = System.currentTimeMillis();
             this.jump = true;
         } else if (key == KeyEvent.VK_SPACE) {
-
+            model.addBeam();
         }
             //else if (key == KeyEvent.VK_DOWN && point.y < S_HEIGHT - 100) {
             //Will not do anything
@@ -90,13 +95,19 @@ public class Level1 extends GameState {
 
 
     @Override
-    public void update(GameModel model,ArrayList<Enemy> enemies) {
+    public void update(GameModel model,ArrayList<Enemy> enemies,ArrayList<Beam> beamList) {
         //Use this one when jumping, cause it will need to carry out for a while during which other movements can be made
         //tester.delegate(null);
         model.addEnemy(point.y);
         for (Enemy enemy: enemies) {
             enemy.update();
         }
+        for (Beam beam : beamList) {
+            beam.update();
+        }
+
+        model.checkCollision();
+
         if (jump == true) {
             if (dir==true) {
                 //long x = (System.currentTimeMillis() - start)/1000;

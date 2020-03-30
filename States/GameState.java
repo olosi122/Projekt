@@ -1,5 +1,6 @@
 package Projekt.Projekt.States;
 
+import Projekt.Projekt.Characters.Beam;
 import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.GameModel;
 
@@ -17,9 +18,9 @@ public abstract class GameState {
         this.model = model;
     }
 
-    public abstract void update(GameModel model, ArrayList<Enemy> enemies);
+    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList);
 
-    public abstract void draw(Graphics g, ArrayList<Enemy> enemies);
+    public abstract void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList);
 
     public abstract void keyPressed(int key,GameModel model);
 

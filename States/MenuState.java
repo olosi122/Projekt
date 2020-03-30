@@ -1,5 +1,6 @@
 package Projekt.Projekt.States;
 
+import Projekt.Projekt.Characters.Beam;
 import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.GameModel;
 
@@ -28,7 +29,7 @@ public class MenuState extends GameState {
     Draws information text to the screen
     */
     @Override
-    public void draw(Graphics g, ArrayList<Enemy> enemies) {
+    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
         drawBg(g, bgColor);
 
         g.setColor(fontColor);
@@ -47,5 +48,5 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void update(GameModel enemies, ArrayList<Enemy> enemyArrayList) {;}
+    public void update(GameModel enemies, ArrayList<Enemy> enemyArrayList, ArrayList<Beam> beamList) {;}
 }
