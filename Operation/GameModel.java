@@ -78,11 +78,11 @@ public class GameModel {
             //Beam beam = (Beam) itrb.next();
             //Enemy enemy = (Enemy) itre.next();
             //System.out.println(beam);
-            System.out.println(enemy);
+            //System.out.println(enemy);
             //Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHight());
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHight());
-            System.out.println(enemy.getX());
-            System.out.println(enemy.getY());
+           // System.out.println(enemy.getX());
+           // System.out.println(enemy.getY());
             Rectangle player = new Rectangle(currentState.getX(), currentState.getY(), 50, 50);
 
             if (rec2.intersects(player)) {

@@ -5,6 +5,7 @@ import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.Characters.Player;
 import Projekt.Projekt.Maps.Platform;
 import Projekt.Projekt.Operation.GameModel;
+import Projekt.Projekt.Operation.Timer;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -20,6 +21,7 @@ public class Level1 extends GameState {
     private Platform plat1;
     private Platform plat2;
     private Player player;
+    private Timer time;
 
     public Level1(GameModel model) {
         super(model);
@@ -29,6 +31,7 @@ public class Level1 extends GameState {
         this.plat1=new Platform(100,400);
         this.plat2=new Platform(S_WIDTH-200,400);
         this.player=new Player();
+        this.time=new Timer();
     }
 
     @Override
@@ -78,6 +81,8 @@ public class Level1 extends GameState {
         model.checkCollision();
 
         player.update();
+
+        time.update();
     }
 }
 
