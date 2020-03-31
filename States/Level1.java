@@ -3,7 +3,7 @@ package Projekt.Projekt.States;
 import Projekt.Projekt.Characters.Beam;
 import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.Characters.Player;
-import Projekt.Projekt.Maps.Platform;
+import Projekt.Projekt.Characters.Platform;
 import Projekt.Projekt.Operation.GameModel;
 import Projekt.Projekt.Operation.Timer;
 

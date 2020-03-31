@@ -1,4 +1,4 @@
-package Projekt.Projekt.Maps;
+package Projekt.Projekt.Characters;
 
 import java.awt.*;
 

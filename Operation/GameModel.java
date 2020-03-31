@@ -4,17 +4,12 @@ import Projekt.Projekt.Characters.Beam;
 import Projekt.Projekt.Characters.Dumb;
 import Projekt.Projekt.Characters.Enemy;
 import Projekt.Projekt.Characters.Player;
-import Projekt.Projekt.Maps.Level;
-import Projekt.Projekt.Maps.Platform;
+import Projekt.Projekt.Characters.Platform;
 import Projekt.Projekt.States.GameState;
-import Projekt.Projekt.States.Level1;
 import Projekt.Projekt.States.MenuState;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.ListIterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameModel {
 
@@ -44,21 +39,18 @@ public class GameModel {
         currentState.keyPressed(key, this);
     }
 
-    /**
-     * The update function is called every iteration of the game loop.
-     * it's usually used to update the games logic e.g. objects position, velocity, etc...
-     */
     public void update() {
         currentState.update(this, enemyList, beamList);
     }
 
     public void addEnemy(int y) {
-        if (System.currentTimeMillis() - master > 1000) {
+        //currentState.addEnemy(y);
+        if (System.currentTimeMillis() - master > 1500) {
             if (right) {
-                //enemyList.add(q, new Dumb(true, y));
+                enemyList.add(q, new Dumb(true, y));
                 right = false;
             } else {
-                //enemyList.add(new Dumb(false, y));
+                enemyList.add(new Dumb(false, y));
                 right = true;
             }
             master = System.currentTimeMillis();
@@ -107,7 +99,6 @@ public class GameModel {
             }
         }
 
-        //Checks if beam-enemy
         for (Beam beam : beamList) {
             Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHeight());
             for (Enemy enemy : enemyList) {

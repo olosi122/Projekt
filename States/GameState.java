@@ -29,11 +29,9 @@ public abstract class GameState {
         g.fillRect(0, 0, S_WIDTH, S_HEIGHT);
     }
 
+    /*
     public int getX(){ return 0;}
 
-    /**
-     * This one is going into player with many other things
-     */
     public int getY() {return 0;}
 
     public boolean getDir(){return true;}
@@ -41,5 +39,7 @@ public abstract class GameState {
     public void activate() {}
 
     public void deactivate() {}
+
+     */
 }
 
