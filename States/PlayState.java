@@ -3,30 +3,79 @@ package Projekt.States;
 import Projekt.Characters.Beam;
 import Projekt.Characters.Enemy;
 import Projekt.Characters.Platform;
+import Projekt.Characters.Player;
 import Projekt.Operation.GameModel;
+import Projekt.Operation.Timer;
 import Projekt.PowerUps.PowerUp;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public abstract class PlayState extends GameState {
 
+    private String informationText;
+    private Color bgColor;
+    private Color fontColor;
+    private Player player;
+    private Timer time;
+
     public PlayState(GameModel model) {
         super(model);
+        informationText = "Press Escape To Return To The Menu";
+        bgColor = new Color(154, 154, 154);
+        fontColor = new Color(123, 178, 116);
+        this.player = new Player();
+        this.time = new Timer();
     }
 
     @Override
     public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
+        model.addEnemy(player.getY());
 
+        model.removeEnemy();
+        model.removeBeam();
+        model.removePower();
+
+        player.update();
+
+        model.checkCollision(player);
+
+        time.update();
     }
 
     @Override
     public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
+        drawBg(g, bgColor);
+
+        player.draw(g);
+
+        time.draw(g);
+
+        for (Platform platform : platList) {
+            platform.draw(g);
+        }
+
+        for (Enemy enemy : enemies) {
+            enemy.draw(g);
+        }
+
+        for (Beam beam : beamList) {
+            beam.draw(g);
+        }
+
+        for (PowerUp power : powerList) {
+            power.draw(g);
+        }
 
     }
 
     @Override
     public void keyPressed(int key, GameModel model) {
-
+        if (key == KeyEvent.VK_ESCAPE) {
+            model.switchState(new MenuState(model));
+        } else {
+            player.keyPressed(key, model);
+        }
     }
 }

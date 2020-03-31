@@ -38,10 +38,9 @@ public class MenuState extends GameState {
 
     @Override
     public void keyPressed(int key, GameModel model) {
-        System.out.println("Trycker på " + KeyEvent.getKeyText(key) + " i MenuState");
 
         if (key == KeyEvent.VK_ENTER)
-            model.switchState(new Level1(model));
+            model.switchState(new Level2(model));
         if (key == KeyEvent.VK_ESCAPE)
             System.exit(0);
     }
