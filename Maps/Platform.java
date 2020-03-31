@@ -4,15 +4,17 @@ import java.awt.*;
 
 public class Platform {
 
-    private int width = 100;
-    private int height = 25;
+    private int width;
+    private int height;
     private Color color = Color.gray;
     private int pointX;
     private int pointY;
 
-    public Platform(int x, int y) {
+    public Platform(int x, int y,int width, int height) {
         this.pointX = x;
         this.pointY = y;
+        this.width = width;
+        this.height = height;
     }
 
     public int getWidth() {

@@ -25,15 +25,11 @@ public class Dumb extends Enemy {
     }
 
     public void update(GameModel model) {
-        if (remove == false) {
             if (this.right) {
                 this.point.x -= 1;
             } else {
                 this.point.x += 1;
             }
-        } else {
-            model.removeEnemy(this);
-        }
     }
 
     public void setRemove(boolean b) {

@@ -36,6 +36,10 @@ public class GameModel {
         //currentState.activate();
     }
 
+    public void addPlat(Platform platform) {
+        this.platList.add(platform);
+    }
+
     public void keyPressed(int key) {
         currentState.keyPressed(key, this);
     }
@@ -51,22 +55,36 @@ public class GameModel {
     public void addEnemy(int y) {
         if (System.currentTimeMillis() - master > 1000) {
             if (right) {
-                enemyList.add(q, new Dumb(true, y));
+                //enemyList.add(q, new Dumb(true, y));
                 right = false;
             } else {
-                enemyList.add(new Dumb(false, y));
+                //enemyList.add(new Dumb(false, y));
                 right = true;
             }
             master = System.currentTimeMillis();
         }
     }
 
-    public void removeEnemy(Enemy enemy) {
-        this.enemyList.remove(enemy);
+    public void removeEnemy() {
+        for (int i = 0; i < enemyList.size(); i++) {
+            Enemy enemy = enemyList.get(i);
+            if (enemy.getRemove() == false) {
+                enemy.update(this);
+            } else {
+                enemyList.remove(i);
+            }
+        }
     }
 
-    public void removeBeam(Beam beam) {
-        this.beamList.remove(beam);
+    public void removeBeam() {
+        for (int i = 0; i < beamList.size(); i++) {
+            Beam beam = beamList.get(i);
+            if (beam.getRemove() == false) {
+                beam.update();
+            } else {
+                beamList.remove(i);
+            }
+        }
     }
 
     public void fire(Player player) {
@@ -78,8 +96,6 @@ public class GameModel {
     }
 
     public void checkCollision(Player player) {
-        //Iterator<Beam> itrb = beamList.iterator();
-        //Iterator<Enemy> itre = enemyList.iterator();
         Rectangle p = new Rectangle(player.getX(), player.getY(), 50, 50);
 
         //Checks player-enemy
@@ -91,6 +107,7 @@ public class GameModel {
             }
         }
 
+        //Checks if beam-enemy
         for (Beam beam : beamList) {
             Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHeight());
             for (Enemy enemy : enemyList) {
@@ -103,31 +120,15 @@ public class GameModel {
             }
         }
 
-        //while (itre.hasNext()) {
-        //Beam beam = (Beam) itrb.next();
-        //Enemy enemy = (Enemy) itre.next();
-        //System.out.println(beam);
-        //System.out.println(enemy);
-        //Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHight());
-
-        // System.out.println(enemy.getX());
-        // System.out.println(enemy.getY());
-
-        //if (rec1.intersects(rec2)) {
-        //   itrb.remove();
-        // itre.remove();
+        for (Platform platform : platList) {
+            Rectangle rec4 = new Rectangle(platform.getX(), platform.getY(), platform.getWidth(), platform.getHeight());
+            if (rec4.intersects(p)) {
+                player.setGround(true);
+                return;
+            }
+        }
+        player.setGround(false);
     }
 }
-
-        /*
-        Iterator iterp = platList.iterator();
-        while (iterp.hasNext()) {
-            Platform platform = (Platform) iterp.next();
-            Rectangle rec4 = new Rectangle(platform.getX(), platform.getY(), platform.getWidth(), 1);
-            if (player.intersects(rec4) && currentState.getY() + 50 == platform.getY()) {
-
-            }
-
-         */
 
 

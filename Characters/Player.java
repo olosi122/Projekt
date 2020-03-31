@@ -13,8 +13,11 @@ public class Player {
     private Point point;
     private long start = 0;
     private boolean jump = false;
-    private double x = 0;
+    private double x = 1;
     private boolean dir = true;
+    private boolean fall = false;
+    private boolean ground;
+    private boolean jumping = false;
 
     public Player() {
         this.point = new Point(500, S_HEIGHT - 100);
@@ -37,11 +40,6 @@ public class Player {
         return this.dir;
     }
 
-    public void cancelJump() {
-        this.jump = false;
-        this.x = 0;
-    }
-
     public void keyPressed(int key, GameModel model) {
 
         if (key == KeyEvent.VK_RIGHT) {
@@ -55,15 +53,23 @@ public class Player {
                 this.point.x -= 10;
             }
         } else if (key == KeyEvent.VK_UP) {
-            this.start = System.currentTimeMillis();
             this.jump = true;
         } else if (key == KeyEvent.VK_SPACE) {
             model.fire(this);
         }
     }
 
+    public void setGround(boolean b) {
+        this.ground = b;
+    }
+
     public void update() {
-        if (jump == true) {
+        if (ground == false && jump == false) {
+            point.y = point.y + 1;
+        } else if (ground && jump && jumping) {
+            jump = false;
+            jumping = false;
+        } else if (ground == false && jump == true && jumping) {
             if (dir == true) {
                 point.y = (int) (point.y - (-Math.pow(x, 2.0) + (5 * x)));
                 point.x = (int) (point.x + x);
@@ -73,14 +79,12 @@ public class Player {
                 point.x = (int) (point.x - x);
                 x += 0.1;
             }
-
-            if (point.y > S_HEIGHT - 100) {
-                this.jump = false;
-                x = 0;
-                point.y = S_HEIGHT - 100;
-            }
+        } else if (ground == true && jump == true && jumping == false) {
+            point.y = point.y - 1;
+            jumping = true;
         }
     }
+
 
     public class Point {
         int x;
@@ -92,3 +96,4 @@ public class Player {
         }
     }
 }
+
