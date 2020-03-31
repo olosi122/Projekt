@@ -2,6 +2,7 @@ package Projekt.States;
 
 import Projekt.Characters.Beam;
 import Projekt.Characters.Enemy;
+import Projekt.Characters.Platform;
 import Projekt.Operation.GameModel;
 
 import java.awt.*;
@@ -20,7 +21,7 @@ public abstract class GameState {
 
     public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList);
 
-    public abstract void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList);
+    public abstract void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList);
 
     public abstract void keyPressed(int key,GameModel model);
 

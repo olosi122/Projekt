@@ -20,6 +20,7 @@ public class GameModel {
     private long master = System.currentTimeMillis();
     private boolean right = false;
     private int q = 0;
+    private int intervall = 1000;
 
     public GameModel() {
         this.currentState = new MenuState(this);
@@ -43,7 +44,8 @@ public class GameModel {
 
     public void addEnemy(int y) {
         //currentState.addEnemy(y);
-        if (System.currentTimeMillis() - master > 1500) {
+        if (System.currentTimeMillis() - master > intervall) {
+            this.intervall-=10;
             if (right) {
                 enemyList.add(q, new Dumb(true, y));
                 right = false;
@@ -82,7 +84,7 @@ public class GameModel {
     }
 
     public void draw(Graphics g) {
-        currentState.draw(g, enemyList, beamList);
+        currentState.draw(g, enemyList, beamList,platList);
     }
 
     public void checkCollision(Player player) {
@@ -91,6 +93,9 @@ public class GameModel {
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
             if (rec2.intersects(p)) {
+                this.enemyList= new ArrayList<>();
+                this.beamList= new ArrayList<>();
+                this.platList=new ArrayList<>();
                 switchState(new MenuState(this));
             }
         }
