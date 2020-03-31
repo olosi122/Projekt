@@ -124,6 +124,7 @@ public class GameModel {
             Rectangle rec4 = new Rectangle(platform.getX(), platform.getY(), platform.getWidth(), platform.getHeight());
             if (rec4.intersects(p)) {
                 player.setGround(true);
+                player.setGroundLevel(platform.getY()-50);
                 return;
             }
         }
