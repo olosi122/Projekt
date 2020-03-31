@@ -25,9 +25,6 @@ public class MenuState extends GameState {
         fontColor = new Color(200, 198, 130);
     }
 
-    /*
-    Draws information text to the screen
-    */
     @Override
     public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
         drawBg(g, bgColor);

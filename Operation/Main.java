@@ -31,7 +31,6 @@ public class Main {
             try {
                 Thread.sleep((long) Math.max(ms - timer, 0));
             } catch (InterruptedException e) {
-                System.out.println("time delay");
                 System.out.println(ms - timer);
             }
         }

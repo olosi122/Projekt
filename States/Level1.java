@@ -44,8 +44,6 @@ public class Level1 extends GameState {
     public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
         drawBg(g, bgColor);
 
-        //g.drawString(informationText, (S_WIDTH / 2) - 200, S_HEIGHT / 2);
-
         plat0.draw(g);
         plat1.draw(g);
         plat2.draw(g);
@@ -65,7 +63,6 @@ public class Level1 extends GameState {
 
     @Override
     public void keyPressed(int key, GameModel model) {
-        //System.out.println("Trycker på " + KeyEvent.getKeyText(key) + " i PlayState");
 
         if (key == KeyEvent.VK_ESCAPE) {
             model.switchState(new MenuState(model));

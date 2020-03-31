@@ -26,9 +26,7 @@ public class GameModel {
     }
 
     public void switchState(GameState nextState) {
-        //currentState.deactivate();
         currentState = nextState;
-        //currentState.activate();
     }
 
     public void addPlat(Platform platform) {
@@ -90,7 +88,6 @@ public class GameModel {
     public void checkCollision(Player player) {
         Rectangle p = new Rectangle(player.getX(), player.getY(), 50, 50);
 
-        //Checks player-enemy
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
             if (rec2.intersects(p)) {

@@ -17,7 +17,7 @@ public class GameFrame extends JFrame {
         this.setSize(S_WIDTH, S_HEIGHT);
         this.add(new GamePanel(model));
         this.setVisible(true);
-        playMusic("sounds/Tanks Loop.wav",true);
+        //playMusic("sounds/Tanks Loop.wav",true);
     }
 
     private static Clip playMusic(String path, boolean repeat) {

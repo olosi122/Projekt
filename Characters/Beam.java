@@ -12,10 +12,9 @@ public class Beam {
     private int width = 20;
     private int height = 10;
     private boolean dir;
-    private int point_x = 0;
-    private int point_y = 0;
+    private int point_x;
+    private int point_y;
     private boolean remove = false;
-    //private Point point;
 
     public Beam(int x, int y, boolean dir) {
         this.point_x = x;
@@ -67,13 +66,4 @@ public class Beam {
         this.remove = b;
     }
 
-    public class Point {
-        int x;
-        int y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
 }

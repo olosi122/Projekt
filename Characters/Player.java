@@ -1,7 +1,6 @@
 package Projekt.Characters;
 
 import Projekt.Operation.GameModel;
-import Projekt.States.Level1;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
