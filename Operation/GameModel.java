@@ -1,12 +1,12 @@
-package Projekt.Projekt.Operation;
+package Projekt.Operation;
 
-import Projekt.Projekt.Characters.Beam;
-import Projekt.Projekt.Characters.Dumb;
-import Projekt.Projekt.Characters.Enemy;
-import Projekt.Projekt.Characters.Player;
-import Projekt.Projekt.Characters.Platform;
-import Projekt.Projekt.States.GameState;
-import Projekt.Projekt.States.MenuState;
+import Projekt.Characters.Beam;
+import Projekt.Characters.Dumb;
+import Projekt.Characters.Enemy;
+import Projekt.Characters.Player;
+import Projekt.Characters.Platform;
+import Projekt.States.GameState;
+import Projekt.States.MenuState;
 
 import java.awt.*;
 import java.util.ArrayList;

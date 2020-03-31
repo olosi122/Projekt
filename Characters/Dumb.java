@@ -1,10 +1,10 @@
-package Projekt.Projekt.Characters;
+package Projekt.Characters;
 
-import Projekt.Projekt.Operation.GameModel;
+import Projekt.Operation.GameModel;
 
 import java.awt.*;
 
-import static Projekt.Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Operation.Constants.S_WIDTH;
 
 public class Dumb extends Enemy {
 

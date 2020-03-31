@@ -1,12 +1,12 @@
-package Projekt.Projekt.Operation;
+package Projekt.Operation;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
-import static Projekt.Projekt.Operation.Constants.S_HEIGHT;
-import static Projekt.Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Operation.Constants.S_HEIGHT;
+import static Projekt.Operation.Constants.S_WIDTH;
 
 public class GameFrame extends JFrame {
 

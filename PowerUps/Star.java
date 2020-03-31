@@ -1,4 +1,4 @@
-package Projekt.Projekt.PowerUps;
+package Projekt.PowerUps;
 
 public class Star {
 }

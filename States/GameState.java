@@ -1,14 +1,14 @@
-package Projekt.Projekt.States;
+package Projekt.States;
 
-import Projekt.Projekt.Characters.Beam;
-import Projekt.Projekt.Characters.Enemy;
-import Projekt.Projekt.Operation.GameModel;
+import Projekt.Characters.Beam;
+import Projekt.Characters.Enemy;
+import Projekt.Operation.GameModel;
 
 import java.awt.*;
 import java.util.ArrayList;
 
-import static Projekt.Projekt.Operation.Constants.S_WIDTH;
-import static Projekt.Projekt.Operation.Constants.S_HEIGHT;
+import static Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Operation.Constants.S_HEIGHT;
 
 public abstract class GameState {
 
@@ -28,18 +28,5 @@ public abstract class GameState {
         g.setColor(color);
         g.fillRect(0, 0, S_WIDTH, S_HEIGHT);
     }
-
-    /*
-    public int getX(){ return 0;}
-
-    public int getY() {return 0;}
-
-    public boolean getDir(){return true;}
-
-    public void activate() {}
-
-    public void deactivate() {}
-
-     */
 }
 

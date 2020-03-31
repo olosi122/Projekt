@@ -1,18 +1,18 @@
-package Projekt.Projekt.States;
+package Projekt.States;
 
-import Projekt.Projekt.Characters.Beam;
-import Projekt.Projekt.Characters.Enemy;
-import Projekt.Projekt.Characters.Player;
-import Projekt.Projekt.Characters.Platform;
-import Projekt.Projekt.Operation.GameModel;
-import Projekt.Projekt.Operation.Timer;
+import Projekt.Characters.Beam;
+import Projekt.Characters.Enemy;
+import Projekt.Characters.Player;
+import Projekt.Characters.Platform;
+import Projekt.Operation.GameModel;
+import Projekt.Operation.Timer;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import static Projekt.Projekt.Operation.Constants.S_HEIGHT;
-import static Projekt.Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Operation.Constants.S_HEIGHT;
+import static Projekt.Operation.Constants.S_WIDTH;
 
 public class Level1 extends GameState {
 

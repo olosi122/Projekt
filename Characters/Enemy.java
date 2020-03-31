@@ -1,6 +1,6 @@
-package Projekt.Projekt.Characters;
+package Projekt.Characters;
 
-import Projekt.Projekt.Operation.GameModel;
+import Projekt.Operation.GameModel;
 
 import java.awt.*;
 

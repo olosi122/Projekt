@@ -1,4 +1,4 @@
-package Projekt.Projekt.States;
+package Projekt.States;
 
 public class Level2 {
 }

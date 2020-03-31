@@ -1,15 +1,15 @@
-package Projekt.Projekt.States;
+package Projekt.States;
 
-import Projekt.Projekt.Characters.Beam;
-import Projekt.Projekt.Characters.Enemy;
-import Projekt.Projekt.Operation.GameModel;
+import Projekt.Characters.Beam;
+import Projekt.Characters.Enemy;
+import Projekt.Operation.GameModel;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import static Projekt.Projekt.Operation.Constants.S_HEIGHT;
-import static Projekt.Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Operation.Constants.S_HEIGHT;
+import static Projekt.Operation.Constants.S_WIDTH;
 
 public class MenuState extends GameState {
     private String informationText;

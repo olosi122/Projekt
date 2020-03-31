@@ -1,4 +1,4 @@
-package Projekt.Projekt.Characters;
+package Projekt.Characters;
 
 public class Smart {
 }

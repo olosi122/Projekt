@@ -1,11 +1,11 @@
-package Projekt.Projekt.Operation;
+package Projekt.Operation;
 
-import Projekt.Projekt.Operation.GameFrame;
-import Projekt.Projekt.Operation.GameModel;
+import Projekt.Operation.GameFrame;
+import Projekt.Operation.GameModel;
 
 import java.awt.*;
 
-import static Projekt.Projekt.Operation.Constants.ms;
+import static Projekt.Operation.Constants.ms;
 
 public class Main {
 

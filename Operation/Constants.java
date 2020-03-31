@@ -1,4 +1,4 @@
-package Projekt.Projekt.Operation;
+package Projekt.Operation;
 
 public interface Constants {
     int S_WIDTH = 1200;

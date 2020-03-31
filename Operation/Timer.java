@@ -1,4 +1,4 @@
-package Projekt.Projekt.Operation;
+package Projekt.Operation;
 
 import java.awt.*;
 
