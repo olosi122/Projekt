@@ -21,6 +21,7 @@ public class MenuState extends GameState {
     private Button1 lvl1;
     private Button2 lvl2;
     private ButtonH high;
+
     public MenuState(GameModel model) {
         super(model);
         bgColor = new Color(78, 172, 176);
@@ -44,7 +45,8 @@ public class MenuState extends GameState {
     @Override
     public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
         //drawBg(g, bgColor);
-        lvl1.paintComponents(g);
+        lvl1.draw(g);
+
 
     }
 }

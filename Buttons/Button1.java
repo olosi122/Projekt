@@ -26,15 +26,28 @@ public class Button1 extends JComponent {
 
     public Button1(GameModel model, int x, int y) {
         //super(model,x,y);
-        this.x=x;
-        this.y=y;
+        this.x = x;
+        this.y = y;
         informationText = "Level 1";
         fontColor = new Color(200, 198, 130);
         addMouseListener(new MouseEventHandler());
     }
 
-    /*
+
     public void draw(Graphics g) {
+
+        g.setColor(Color.green);
+        g.fillRect(100, 100, 100, 100);
+
+        //System.out.println(this.getWidth());
+        //System.out.println(this.getMaximumSize());
+
+        g.setColor(fontColor);
+        g.setFont(new Font("Monospace", Font.PLAIN, 30));
+        g.drawString(informationText, x, y);
+        setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+
+        /*
 
         g.setColor(Color.black);
         g.fillRect(getX(),getY()-50,100,100);
@@ -42,33 +55,25 @@ public class Button1 extends JComponent {
         g.setColor(fontColor);
         g.setFont(new Font("Monospace", Font.PLAIN, 30));
         g.drawString(informationText, getX(),getY());
+
+         */
     }
 
-     */
 
     @Override
     public void paintComponents(Graphics g) {
         super.paintComponents(g);
-        g.setColor(Color.green);
-        g.fillRect(100,100,100,100);
 
-        //System.out.println(this.getWidth());
-        //System.out.println(this.getMaximumSize());
-
-        g.setColor(fontColor);
-        g.setFont(new Font("Monospace", Font.PLAIN, 30));
-        g.drawString(informationText, x,y);
-        setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
     }
 
     @Override
     public int getWidth() {
-        return S_WIDTH;
+        return 100;
     }
 
     @Override
     public int getHeight() {
-        return S_HEIGHT;
+        return 100;
     }
 
     @Override
