@@ -6,6 +6,7 @@ import Projekt.Characters.Platform;
 import Projekt.Characters.Player;
 import Projekt.Operation.GameModel;
 import Projekt.Operation.Timer;
+import Projekt.PowerUps.PowerUp;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -41,6 +42,7 @@ public class Level2 extends PlayState {
 
         model.removeEnemy();
         model.removeBeam();
+        model.removePower();
 
         player.update();
 
@@ -50,7 +52,7 @@ public class Level2 extends PlayState {
     }
 
     @Override
-    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList) {
+    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
         drawBg(g, bgColor);
 
         player.draw(g);

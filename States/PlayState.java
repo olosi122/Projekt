@@ -4,6 +4,7 @@ import Projekt.Characters.Beam;
 import Projekt.Characters.Enemy;
 import Projekt.Characters.Platform;
 import Projekt.Operation.GameModel;
+import Projekt.PowerUps.PowerUp;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public abstract class PlayState extends GameState {
     }
 
     @Override
-    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList) {
+    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
 
     }
 

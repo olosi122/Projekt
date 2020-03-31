@@ -6,6 +6,8 @@ import Projekt.Characters.Player;
 import Projekt.Characters.Platform;
 import Projekt.Operation.GameModel;
 import Projekt.Operation.Timer;
+import Projekt.PowerUps.PowerUp;
+import Projekt.PowerUps.Star;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -31,12 +33,13 @@ public class Level1 extends PlayState {
         model.addPlat(new Platform(100, 400, 100,10));
         model.addPlat(new Platform(S_WIDTH - 200, 400,100,10));
         model.addPlat(new Platform((S_WIDTH/2)-50,250,100,10));
+        model.addPower(new Star(S_WIDTH/2-15, 200));
         this.player = new Player();
         this.time = new Timer();
     }
 
     @Override
-    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList) {
+    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
         drawBg(g, bgColor);
 
         player.draw(g);
@@ -53,6 +56,10 @@ public class Level1 extends PlayState {
 
         for (Beam beam : beamList) {
             beam.draw(g);
+        }
+
+        for (PowerUp power : powerList) {
+            power.draw(g);
         }
     }
 
@@ -72,6 +79,7 @@ public class Level1 extends PlayState {
 
         model.removeEnemy();
         model.removeBeam();
+        model.removePower();
 
         player.update();
 

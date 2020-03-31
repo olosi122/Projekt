@@ -2,7 +2,9 @@ package Projekt.States;
 
 import Projekt.Characters.Beam;
 import Projekt.Characters.Enemy;
+import Projekt.Characters.Platform;
 import Projekt.Operation.GameModel;
+import Projekt.PowerUps.PowerUp;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -26,7 +28,7 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
+    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
         drawBg(g, bgColor);
 
         g.setColor(fontColor);

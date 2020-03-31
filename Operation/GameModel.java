@@ -5,6 +5,8 @@ import Projekt.Characters.Dumb;
 import Projekt.Characters.Enemy;
 import Projekt.Characters.Player;
 import Projekt.Characters.Platform;
+import Projekt.PowerUps.PowerUp;
+import Projekt.PowerUps.Star;
 import Projekt.States.GameState;
 import Projekt.States.MenuState;
 
@@ -17,6 +19,7 @@ public class GameModel {
     private ArrayList<Enemy> enemyList = new ArrayList<>();
     private ArrayList<Beam> beamList = new ArrayList<>();
     private ArrayList<Platform> platList = new ArrayList<>();
+    private ArrayList<PowerUp> powerList = new ArrayList<>();
     private long master = System.currentTimeMillis();
     private boolean right = false;
     private int q = 0;
@@ -32,6 +35,10 @@ public class GameModel {
 
     public void addPlat(Platform platform) {
         this.platList.add(platform);
+    }
+
+    public void addPower(PowerUp power) {
+        this.powerList.add(power);
     }
 
     public void keyPressed(int key) {
@@ -79,12 +86,21 @@ public class GameModel {
         }
     }
 
+    public void removePower() {
+        for (int i = 0; i < powerList.size(); i++) {
+            PowerUp power = powerList.get(i);
+            if (power.getRemove() == true) {
+                powerList.remove(i);
+            }
+        }
+    }
+
     public void fire(Player player) {
         this.beamList.add(new Beam(player.getX(), player.getY(), player.getDir())); //Skicka med model i beam för att ta bort
     }
 
     public void draw(Graphics g) {
-        currentState.draw(g, enemyList, beamList,platList);
+        currentState.draw(g, enemyList, beamList,platList,powerList);
     }
 
     public void checkCollision(Player player) {
@@ -97,6 +113,15 @@ public class GameModel {
                 this.beamList= new ArrayList<>();
                 this.platList=new ArrayList<>();
                 switchState(new MenuState(this));
+            }
+        }
+
+        for (PowerUp power : powerList) {
+            Rectangle rec5 = new Rectangle(power.getX(),power.getY(),power.getWidth(),power.getHeight());
+            if (rec5.intersects(p)) {
+                System.out.println("träff");
+                power.activate();
+                power.setRemove(true);
             }
         }
 
