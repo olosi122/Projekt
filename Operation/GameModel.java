@@ -91,7 +91,6 @@ public class GameModel {
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
             if (rec2.intersects(p)) {
-                System.out.println("Trigger");
                 switchState(new MenuState(this));
             }
         }

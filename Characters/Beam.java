@@ -27,12 +27,12 @@ public class Beam {
             if (point_x == S_WIDTH) {
                 this.setRemove(true);
             }
-            this.point_x += 1;
+            this.point_x += 3;
         } else {
             if (point_x == 0) {
                 this.setRemove(true);
             }
-            this.point_x -= 1;
+            this.point_x -= 3;
         }
     }
 
