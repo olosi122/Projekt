@@ -1,5 +1,7 @@
 package Projekt.Projekt.Characters;
 
+import Projekt.Projekt.Operation.GameModel;
+
 import java.awt.*;
 
 import static Projekt.Projekt.Operation.Constants.S_WIDTH;
@@ -8,7 +10,7 @@ public class Beam {
 
     private Color color = Color.RED;
     private int width = 20;
-    private int hight = 10;
+    private int height = 10;
     private boolean dir;
     private int point_x = 0;
     private int point_y = 0;
@@ -19,26 +21,30 @@ public class Beam {
         this.point_x = x;
         this.point_y = y;
         this.dir = dir;
-
     }
 
     public void update() {
         if (dir == true) {
             if (point_x == S_WIDTH) {
-                //remove from list
-                //model.remove(this);
+                this.setRemove(true);
             }
             this.point_x += 1;
         } else {
+            if (point_x == 0) {
+                this.setRemove(true);
+            }
             this.point_x -= 1;
-            //Until remove from list
         }
+    }
+
+    public boolean getRemove() {
+        return this.remove;
     }
 
     public void draw(Graphics g) {
 
         g.setColor(this.color);
-        g.fillRect(this.point_x, this.point_y, width, hight);
+        g.fillRect(this.point_x, this.point_y, width, height);
     }
 
     public int getX() {
@@ -53,8 +59,12 @@ public class Beam {
         return this.width;
     }
 
-    public int getHight() {
-        return this.hight;
+    public int getHeight() {
+        return this.height;
+    }
+
+    public void setRemove(boolean b) {
+        this.remove = b;
     }
 
     public class Point {

@@ -1,5 +1,7 @@
 package Projekt.Projekt.Characters;
 
+import Projekt.Projekt.Operation.GameModel;
+
 import java.awt.*;
 
 public abstract class Enemy {
@@ -7,7 +9,7 @@ public abstract class Enemy {
     public Enemy() {
     }
 
-    public abstract void update();
+    public abstract void update(GameModel model);
 
     public abstract void draw(Graphics g);
 
@@ -17,6 +19,9 @@ public abstract class Enemy {
 
     public abstract int getWidth();
 
-    public abstract int getHight();
+    public abstract int getHeight();
 
+    public abstract void setRemove(boolean b);
+
+    public abstract boolean getRemove();
 }

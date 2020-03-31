@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 import static Projekt.Projekt.Operation.Constants.S_HEIGHT;
+import static Projekt.Projekt.Operation.Constants.S_WIDTH;
 
 public class Player {
     private Point point;
@@ -37,42 +38,46 @@ public class Player {
     }
 
     public void cancelJump() {
-        this.jump=false;
-        this.x=0;
+        this.jump = false;
+        this.x = 0;
     }
 
     public void keyPressed(int key, GameModel model) {
 
         if (key == KeyEvent.VK_RIGHT) {
             this.dir = true;
-            this.point.x += 10;
+            if (this.point.x < S_WIDTH - 60) {
+                this.point.x += 10;
+            }
         } else if (key == KeyEvent.VK_LEFT) {
             this.dir = false;
-            this.point.x -= 10;
+            if (this.point.x > 0) {
+                this.point.x -= 10;
+            }
         } else if (key == KeyEvent.VK_UP) {
             this.start = System.currentTimeMillis();
             this.jump = true;
         } else if (key == KeyEvent.VK_SPACE) {
-            model.addBeam(this);
+            model.fire(this);
         }
     }
 
     public void update() {
         if (jump == true) {
-            if (dir==true) {
+            if (dir == true) {
                 point.y = (int) (point.y - (-Math.pow(x, 2.0) + (5 * x)));
                 point.x = (int) (point.x + x);
                 x += 0.1;
-            } else if (dir==false) {
+            } else if (dir == false) {
                 point.y = (int) (point.y - (-Math.pow(x, 2.0) + (5 * x)));
                 point.x = (int) (point.x - x);
                 x += 0.1;
             }
 
-            if (point.y>S_HEIGHT-100) {
-                this.jump=false;
-                x=0;
-                point.y=S_HEIGHT-100;
+            if (point.y > S_HEIGHT - 100) {
+                this.jump = false;
+                x = 0;
+                point.y = S_HEIGHT - 100;
             }
         }
     }

@@ -26,12 +26,12 @@ public class Level1 extends GameState {
     public Level1(GameModel model) {
         super(model);
         informationText = "Press Escape To Return To The Menu";
-        bgColor = new Color(78, 87, 100);
+        bgColor = new Color(154, 154, 154);
         fontColor = new Color(123, 178, 116);
-        this.plat1=new Platform(100,400);
-        this.plat2=new Platform(S_WIDTH-200,400);
-        this.player=new Player();
-        this.time=new Timer();
+        this.plat1 = new Platform(100, 400);
+        this.plat2 = new Platform(S_WIDTH - 200, 400);
+        this.player = new Player();
+        this.time = new Timer();
     }
 
     @Override
@@ -45,8 +45,10 @@ public class Level1 extends GameState {
 
         player.draw(g);
 
-        for (Enemy enemy: enemies) {
-        enemy.draw(g);
+        time.draw(g);
+
+        for (Enemy enemy : enemies) {
+            enemy.draw(g);
         }
 
         for (Beam beam : beamList) {
@@ -61,24 +63,34 @@ public class Level1 extends GameState {
         if (key == KeyEvent.VK_ESCAPE) {
             model.switchState(new MenuState(model));
         } else {
-            player.keyPressed(key,model);
+            player.keyPressed(key, model);
         }
     }
 
 
     @Override
-    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
-        //Use this one when jumping, cause it will need to carry out for a while during which other movements can be made
-        //tester.delegate(null);
+    public void update(GameModel model, ArrayList<Enemy> enemyList, ArrayList<Beam> beamList) {
         model.addEnemy(player.getY());
-        for (Enemy enemy: enemies) {
-            enemy.update();
-        }
-        for (Beam beam : beamList) {
-            beam.update();
+
+        for (int i = 0; i < enemyList.size(); i++) {
+            Enemy enemy = enemyList.get(i);
+            if (enemy.getRemove() == false) {
+                enemy.update(model);
+            } else {
+                enemyList.remove(i);
+            }
         }
 
-        model.checkCollision();
+        for (int i = 0; i < beamList.size(); i++) {
+            Beam beam = beamList.get(i);
+            if (beam.getRemove() == false) {
+                beam.update();
+            } else {
+                beamList.remove(i);
+            }
+        }
+
+        model.checkCollision(player);
 
         player.update();
 

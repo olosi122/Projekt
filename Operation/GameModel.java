@@ -61,7 +61,15 @@ public class GameModel {
         }
     }
 
-    public void addBeam(Player player) {
+    public void removeEnemy(Enemy enemy) {
+        this.enemyList.remove(enemy);
+    }
+
+    public void removeBeam(Beam beam) {
+        this.beamList.remove(beam);
+    }
+
+    public void fire(Player player) {
         this.beamList.add(new Beam(player.getX(), player.getY(), player.getDir())); //Skicka med model i beam för att ta bort
     }
 
@@ -69,32 +77,48 @@ public class GameModel {
         currentState.draw(g, enemyList, beamList);
     }
 
-    public void checkCollision() {
-        Iterator<Beam> itrb = beamList.iterator();
-        Iterator<Enemy> itre = enemyList.iterator();
-        //Jag låser thred och tittar bara på första skottet
-        for (Enemy enemy:enemyList) {
-        //while (itre.hasNext()) {
-            //Beam beam = (Beam) itrb.next();
-            //Enemy enemy = (Enemy) itre.next();
-            //System.out.println(beam);
-            //System.out.println(enemy);
-            //Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHight());
-            Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHight());
-           // System.out.println(enemy.getX());
-           // System.out.println(enemy.getY());
-            Rectangle player = new Rectangle(currentState.getX(), currentState.getY(), 50, 50);
+    public void checkCollision(Player player) {
+        //Iterator<Beam> itrb = beamList.iterator();
+        //Iterator<Enemy> itre = enemyList.iterator();
+        Rectangle p = new Rectangle(player.getX(), player.getY(), 50, 50);
 
-            if (rec2.intersects(player)) {
+        //Checks player-enemy
+        for (Enemy enemy : enemyList) {
+            Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
+            if (rec2.intersects(p)) {
                 System.out.println("Trigger");
                 switchState(new MenuState(this));
             }
-            //if (rec1.intersects(rec2)) {
-            //   itrb.remove();
-            // itre.remove();
         }
+
+        for (Beam beam : beamList) {
+            Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHeight());
+            for (Enemy enemy : enemyList) {
+                Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
+
+                if (rec1.intersects(rec2)) {
+                    beam.setRemove(true);
+                    enemy.setRemove(true);
+                }
+            }
+        }
+
+        //while (itre.hasNext()) {
+        //Beam beam = (Beam) itrb.next();
+        //Enemy enemy = (Enemy) itre.next();
+        //System.out.println(beam);
+        //System.out.println(enemy);
+        //Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHight());
+
+        // System.out.println(enemy.getX());
+        // System.out.println(enemy.getY());
+
+        //if (rec1.intersects(rec2)) {
+        //   itrb.remove();
+        // itre.remove();
     }
 }
+
         /*
         Iterator iterp = platList.iterator();
         while (iterp.hasNext()) {
