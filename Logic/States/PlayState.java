@@ -1,5 +1,13 @@
 package Projekt.Logic.States;
 
+/**
+ * Playstate är en parent-klass till både Level1 och Level2 och en underklasss till GameState.
+ * Denna hanterar mycket av den gemensamma spellogiken som kommer gälla för alla banor man
+ * kan tänkas skapa i spelet. De mer specifika funktionerna överskuggas senare i de enskilda
+ * banorna efter behov.
+ *
+ */
+
 import Projekt.Graphics.Characters.Beam;
 import Projekt.Graphics.Characters.Enemy;
 import Projekt.Graphics.Characters.Platform;

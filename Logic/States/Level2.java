@@ -1,5 +1,12 @@
 package Projekt.Logic.States;
 
+/**
+ * Underklasserna till PlayState innehåller många intressanta saker. Till exempel så finns banans layout
+ * i form av plattformar och powerups. Förutom att ha en egen "update", vilket krävs för att skilja på vilka fiender
+ * som ska aktiveras, så hanteras även updateringen av Highscore här med uppladdning till en extern fil.
+ * Dessa skiljer sig åt för de olika banorna då de ska uppdatera olika nycklar i Hashmappen som de sparas i.
+ */
+
 import Projekt.Graphics.Characters.*;
 import Projekt.Logic.Operation.GameModel;
 import Projekt.Graphics.PowerUps.Mushroom;

@@ -1,5 +1,16 @@
 package Projekt.Logic.Operation;
 
+/**
+ * GamePanel är något unik i det att här finner vi hela programmets ända paintComponent. Detta betyder att
+ * allting ritas ut av detta enasamma "Graphics g" som skickas runt till de andra programmens funktioner "draw"
+ * vilket tillåter dem att rita ut på panelen. Fördelningen av vad som ritas ut sker självklart i GameModel som håller
+ * reda på vilket State som är aktivit. Detta betyder att allting är ordnat efter koordinater i planet,
+ * inte färdiga layout-strukturer.
+ *
+ * Genom att sätta panelen till "Focusable(true)" samt en integrerad "Keylistener" så kan alla spelets states
+ * användas av tangetbordet, ty de har samma lyssnare.
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;

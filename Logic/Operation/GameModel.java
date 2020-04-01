@@ -1,5 +1,19 @@
 package Projekt.Logic.Operation;
 
+/**
+ * Gamemodel är en av de sörsta och mest omfattande skripten, tillsammans med Player. Det görs en Gamemodel i
+ * samband med att spelet skapas i Main. Denna refereras till och används i allt ifrån GameFrame till de djupare
+ * underklasserna. Här sparas mycker av den kontinuerliga funktionen som under spelets gång (i lever 1 och level 2)
+ * får göra många beräkningar på kollisioner.
+ *
+ * Den mest unika dela av klassen är att hålla reda på vilket state spelet befinner sig i genom att spara en instans
+ * i klassvariablen currentState. Denna uppdateras genom att rätt knapptryck i rätt state skickar in en ny instans
+ * av valfritt State genom funktionen switchState.
+ *
+ * Allt detta resulterar i att .update som körs i den "stora spellopen" i Main endast updaterar det State som man
+ * så att säga befinner sig i just nu.
+ */
+
 import Projekt.Graphics.Characters.Beam;
 import Projekt.Graphics.Characters.Enemy;
 import Projekt.Graphics.Characters.Player;
@@ -11,7 +25,6 @@ import Projekt.Logic.States.MenuState;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class GameModel {
 
@@ -20,7 +33,6 @@ public class GameModel {
     private ArrayList<Beam> beamList = new ArrayList<>();
     private ArrayList<Platform> platList = new ArrayList<>();
     private ArrayList<PowerUp> powerList = new ArrayList<>();
-    private HashMap<Integer,Integer> scores = new HashMap<>();
 
 
     public GameModel() throws IOException {

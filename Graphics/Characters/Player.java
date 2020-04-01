@@ -5,7 +5,7 @@ package Projekt.Graphics.Characters;
  * används för att kunna skilja på de olika situationerna som spelaren befinner sig i. Dessa används i logiken
  * inuti funktionerna. Ytterst många setters och getters som används för att kunna kontrollera de privata variablerna
  * i en komplex struktur som denna.
- *
+ * <p>
  * Lite unikt för den här är haneringen av knapptryck som registreras på GamePanel och efter att ha passerat PlayState
  * (GameState är abstract) så hanteras mycket av spelarens kontroll av den här klassen.
  */
@@ -89,8 +89,6 @@ public class Player {
     public void update() {
 
         this.checkPower();
-        System.out.println(activeMushroom);
-        System.out.println(activeStar);
 
         if ((ground == false && jump == false && jumping == false) || ground == false && jump == true && jumping == false) {
             point.y = point.y + 1;
@@ -151,6 +149,7 @@ public class Player {
     public void setActiveMushroom(boolean b) {
         this.activeMushroom = b;
     }
+
 
     public class Point {
         int x;

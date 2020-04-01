@@ -1,5 +1,12 @@
 package Projekt.Logic.States;
 
+/**
+ * Denna klassen visar upp en egen skärm (inte fönster) som visar upp innehållet i filen för Highscore.
+ * Detta laddas om varje gång man skapar ett nytt state, och de andra som inte längre är relevanta tas hand om av
+ * skräp-hanteraren.
+ * Viktigt här är att undvika att läsa en fil som inte finns, och nullpointer som kan uppstå i fallet av HashMap:en.
+ */
+
 import Projekt.Graphics.Characters.Beam;
 import Projekt.Graphics.Characters.Enemy;
 import Projekt.Graphics.Characters.Platform;
@@ -56,7 +63,6 @@ public class Highscore extends GameState {
             String temp2 = scores.get(2).toString();
             g.drawString(temp2, S_WIDTH / 2 + 150, S_HEIGHT / 2 - 50);
         }
-
     }
 
     @Override

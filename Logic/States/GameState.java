@@ -1,5 +1,11 @@
 package Projekt.Logic.States;
 
+/**
+ * GameState är en övergipande klass om innfattar alla States som spelet har. Den är abstrakt och fyller främst
+ * en funktion för att enkelt kunna referera till tillhörande GameModel i alla States, samt att ge ett namn
+ * till en struktur som valbara States kan anta (t.ex. alla states som currentState i GameModel kan anta).
+ */
+
 import Projekt.Graphics.Characters.Beam;
 import Projekt.Graphics.Characters.Enemy;
 import Projekt.Graphics.Characters.Platform;

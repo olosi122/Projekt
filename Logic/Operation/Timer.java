@@ -1,5 +1,12 @@
 package Projekt.Logic.Operation;
 
+/**
+ * Detta är en tajmer-klass som gjorts externt från alla klasser ty den används på många ställen.
+ * Genom att sätta en punkt i tiden med hjälp av klassvariabeln "master" kan man enkelt kunna få en
+ * tickande klock i sekunder. Denna används för att mäta tiden på Level1 och Level2 samt att
+ * sätta Highscore som räknas i tid.
+ */
+
 import java.awt.*;
 
 public class Timer {
@@ -24,7 +31,6 @@ public class Timer {
     public void update() {
         if (System.currentTimeMillis()-master>1000) {
             time+=1;
-            System.out.println(time);
             master=System.currentTimeMillis();
         }
     }

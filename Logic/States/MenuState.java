@@ -1,5 +1,12 @@
 package Projekt.Logic.States;
 
+/**
+ * MenuState har ansvar för tre huvudsakliga grejer:
+ * 1. Att se till att det finns en fil att skriva över Highscores till. Detta för att undvika ClassNotFoundExceptino.
+ * 2. Att hantera navigeringen i meny där man kan välja mellan olika States.
+ * 3. Skriva ut menyknapparna så att spelaren enkelt kan navigera vart det vill vara.
+ */
+
 import Projekt.Graphics.Characters.Beam;
 import Projekt.Graphics.Characters.Enemy;
 import Projekt.Graphics.Characters.Platform;
@@ -44,8 +51,7 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
-
+    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {;
     }
 
     @Override
@@ -67,12 +73,12 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void draw(Graphics
-                             g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
+    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
         drawBg(g, bgColor);
 
         g.setColor(textColor);
         g.setFont(textFont);
+
         g.drawString("Tryck 1 : Level 1", S_WIDTH / 2 - 150, S_HEIGHT / 2 - 100);
         g.drawString("Tryck 2 : Level 2", S_WIDTH / 2 - 150, S_HEIGHT / 2 - 50);
         g.drawString("Tryck 3 : Heighscore", S_WIDTH / 2 - 150, S_HEIGHT / 2);
