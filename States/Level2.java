@@ -31,10 +31,10 @@ public class Level2 extends PlayState {
         if (System.currentTimeMillis() - getMaster() > getIntervall()) {
             setIntervall(10);
             if (getRight()) {
-                model.addEnemy(new Dumb(true,getPlayer().getY()));
+                model.addEnemy(new Smart(true,getPlayer().getY(),getPlayer()));
                 setRight(false);
             } else {
-                model.addEnemy(new Dumb(false,getPlayer().getY()));
+                model.addEnemy(new Smart(false,getPlayer().getY(), getPlayer()));
                 setRight(true);
             }
             setMaster();

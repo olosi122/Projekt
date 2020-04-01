@@ -30,7 +30,7 @@ public class MenuState extends GameState {
     public void keyPressed(int key, GameModel model) {
 
         if (key == KeyEvent.VK_ENTER)
-            model.switchState(new Level1(model));
+            model.switchState(new Level2(model));
         if (key == KeyEvent.VK_ESCAPE)
             System.exit(0);
     }
