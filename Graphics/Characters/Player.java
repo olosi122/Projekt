@@ -5,7 +5,6 @@ import Projekt.Logic.Operation.GameModel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 
 import static Projekt.Logic.Operation.Constants.S_HEIGHT;
 import static Projekt.Logic.Operation.Constants.S_WIDTH;
@@ -23,21 +22,19 @@ public class Player {
     private int height = 75;
     private static Image image = null;
     private boolean activeStar = false;
+    private long master;
 
     public Player() {
         this.point = new Point(500, S_HEIGHT - 150);
     }
 
     public void draw(Graphics g) {
-        g.drawImage(getImage(), point.x, point.y,width,height, null);
-        g.setColor(Color.black);
+        g.drawImage(getImage(), point.x, point.y, width, height, null);
     }
 
     private static Image getImage() {
         if (image == null) {
             ImageIcon i = new ImageIcon("sprites/playersprite.png");
-           // ImageIcon i = new ImageIcon("sprites/playerspriteR.png");
-            //ImageIcon i = new ImageIcon("sprites/playerspriteL.png");
             image = i.getImage();
         }
         return image;
@@ -79,6 +76,9 @@ public class Player {
     }
 
     public void update() {
+
+        this.checkPower();
+
         if ((ground == false && jump == false && jumping == false) || ground == false && jump == true && jumping == false) {
             point.y = point.y + 1;
         } else if (ground && jump && jumping) {
@@ -102,6 +102,12 @@ public class Player {
         }
     }
 
+    private void checkPower() {
+        if (activeStar == true && (System.currentTimeMillis() - master > 10000)) {
+            this.activeStar = false;
+        } 
+    }
+
     public void setGroundLevel(int y) {
         this.groundLevel = y;
     }
@@ -118,8 +124,9 @@ public class Player {
         return this.activeStar;
     }
 
-    public void setActiveStar(boolean b) {
-        this.activeStar=b;
+    public void setActiveStar() {
+        this.master = System.currentTimeMillis();
+        this.activeStar = true;
     }
 
     public class Point {
