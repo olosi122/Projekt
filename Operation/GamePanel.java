@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 
 import static Projekt.Operation.Constants.S_HEIGHT;
@@ -31,7 +32,11 @@ public class GamePanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        model.draw(g);
+        try {
+            model.draw(g);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

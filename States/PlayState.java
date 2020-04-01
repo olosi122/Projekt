@@ -10,6 +10,7 @@ import Projekt.PowerUps.PowerUp;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class PlayState extends GameState {
@@ -57,7 +58,7 @@ public abstract class PlayState extends GameState {
     }
 
     @Override
-    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
+    public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) throws IOException {
         drawBg(g, bgColor);
 
         player.draw(g);

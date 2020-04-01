@@ -2,13 +2,18 @@ package Projekt.Characters;
 
 import Projekt.Operation.GameModel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import static Projekt.Operation.Constants.S_HEIGHT;
 import static Projekt.Operation.Constants.S_WIDTH;
 
-public class Player {
+public class Player extends Sprite{
+
     private Point point;
     private boolean jump = false;
     private double x = 1;
@@ -21,9 +26,10 @@ public class Player {
         this.point = new Point(500, S_HEIGHT - 100);
     }
 
-    public void draw(Graphics g) {
+    public void draw(Graphics g) throws IOException {
+        g.drawImage(getImage(),point.x,point.y,null);
         g.setColor(Color.black);
-        g.fillOval(point.x, point.y, 50, 50);
+        //g.fillOval(point.x, point.y, 50, 50);
     }
 
     public int getX() {

@@ -11,6 +11,7 @@ import Projekt.States.GameState;
 import Projekt.States.MenuState;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameModel {
@@ -86,7 +87,7 @@ public class GameModel {
         this.beamList.add(new Beam(player.getX(), player.getY(), player.getDir())); //Skicka med model i beam för att ta bort
     }
 
-    public void draw(Graphics g) {
+    public void draw(Graphics g) throws IOException {
         currentState.draw(g, enemyList, beamList, platList, powerList);
     }
 

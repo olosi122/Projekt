@@ -9,6 +9,7 @@ import Projekt.Operation.Timer;
 import Projekt.PowerUps.PowerUp;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static Projekt.Operation.Constants.S_WIDTH;
@@ -24,7 +25,7 @@ public abstract class GameState {
 
     public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList);
 
-    public abstract void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList);
+    public abstract void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) throws IOException;
 
     public abstract void keyPressed(int key,GameModel model);
 
