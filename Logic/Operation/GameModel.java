@@ -43,10 +43,6 @@ public class GameModel {
         currentState.keyPressed(key, this);
     }
 
-    public HashMap<Integer, Integer> getScores() {
-        return this.scores;
-    }
-
     public void update() throws IOException, ClassNotFoundException {
         currentState.update(this, enemyList, beamList);
     }
@@ -94,7 +90,7 @@ public class GameModel {
     }
 
     public void fire(Player player) {
-        this.beamList.add(new Beam(player.getX(), player.getY(), player.getDir())); //Skicka med model i beam för att ta bort
+        this.beamList.add(new Beam(player.getX(), player.getY()+25, player.getDir())); //Skicka med model i beam för att ta bort
     }
 
     public void draw(Graphics g) throws IOException, ClassNotFoundException {

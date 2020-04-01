@@ -32,7 +32,7 @@ public abstract class Enemy {
     }
 
     public void draw(Graphics g) {
-        g.drawImage(getImage(), point.x, point.y,size,size, null);
+        g.drawImage(getImage(), point.x, point.y, size, size, null);
     }
 
     public abstract Image getImage();
@@ -55,7 +55,7 @@ public abstract class Enemy {
     }
 
     public void setY(int i) {
-        this.point.y+=i;
+        this.point.y += i;
     }
 
     public int getWidth() {
@@ -64,18 +64,6 @@ public abstract class Enemy {
 
     public int getHeight() {
         return this.size;
-    }
-
-    public void setRight(boolean r) {
-        this.right=r;
-    }
-
-    public boolean getRight() {
-        return this.right;
-    }
-
-    public int getSize() {
-        return size;
     }
 
     public class Point {

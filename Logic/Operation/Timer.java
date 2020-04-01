@@ -25,7 +25,6 @@ public class Timer {
         if (System.currentTimeMillis()-master>1000) {
             time+=1;
             System.out.println(time);
-            //om en viss tid så vinner man banan
             master=System.currentTimeMillis();
         }
     }

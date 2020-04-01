@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Mushroom extends PowerUp {
-    private Color col = Color.red;
+
     private Image image = null;
 
     public Mushroom(int x, int y, Player player) {

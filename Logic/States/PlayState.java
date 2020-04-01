@@ -15,9 +15,7 @@ import java.util.ArrayList;
 
 public abstract class PlayState extends GameState {
 
-    private String informationText;
     private Color bgColor;
-    private Color fontColor;
     private Player player;
     private long master = System.currentTimeMillis();
     private boolean right = false;
@@ -25,9 +23,7 @@ public abstract class PlayState extends GameState {
 
     public PlayState(GameModel model) {
         super(model);
-        informationText = "Press Escape To Return To The Menu";
         bgColor = new Color(154, 154, 154);
-        fontColor = new Color(123, 178, 116);
         this.player = new Player();
     }
 

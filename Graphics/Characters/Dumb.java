@@ -5,12 +5,10 @@ import java.awt.*;
 
 public class Dumb extends Enemy {
 
-
-    private Color color = Color.CYAN;
     private Image image = null;
 
     public Dumb(boolean right, int y) {
-        super(right,y);
+        super(right, y);
     }
 
     public Image getImage() {
@@ -20,5 +18,4 @@ public class Dumb extends Enemy {
         }
         return image;
     }
-
 }

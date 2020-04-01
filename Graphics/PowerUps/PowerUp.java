@@ -6,7 +6,6 @@ import java.awt.*;
 
 public abstract class PowerUp {
 
-    private Color col = Color.yellow;
     private Point point;
     private int width = 30;
     private int height = 30;

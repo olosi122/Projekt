@@ -66,7 +66,5 @@ public class Highscore extends GameState {
     }
 
     @Override
-    public void getTime() {
-        ;
-    }
+    public void getTime() {;}
 }
