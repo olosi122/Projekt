@@ -21,7 +21,7 @@ public abstract class GameState {
         this.model = model;
     }
 
-    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList);
+    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException;
 
     public abstract void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) throws IOException;
 

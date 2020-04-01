@@ -17,6 +17,10 @@ public class Timer {
         g.drawString("Time: " + time, 25,50);
     }
 
+    public int getTime() {
+        return time;
+    }
+
     public void update() {
         if (System.currentTimeMillis()-master>1000) {
             time+=1;

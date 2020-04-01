@@ -4,6 +4,7 @@ import Projekt.Graphics.Characters.*;
 import Projekt.Logic.Operation.GameModel;
 import Projekt.Graphics.PowerUps.Star;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static Projekt.Logic.Operation.Constants.S_HEIGHT;
@@ -21,7 +22,7 @@ public class Level1 extends PlayState {
     }
 
     @Override
-    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
+    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException {
         if (System.currentTimeMillis() - getMaster() > getIntervall()) {
             setIntervall(10);
             if (getRight()) {

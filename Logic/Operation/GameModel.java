@@ -9,7 +9,7 @@ import Projekt.Logic.States.GameState;
 import Projekt.Logic.States.MenuState;
 
 import java.awt.*;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class GameModel {
@@ -41,7 +41,7 @@ public class GameModel {
         currentState.keyPressed(key, this);
     }
 
-    public void update() {
+    public void update() throws IOException {
         currentState.update(this, enemyList, beamList);
     }
 
@@ -88,8 +88,8 @@ public class GameModel {
         currentState.draw(g, enemyList, beamList, platList, powerList);
     }
 
-    public void checkCollision(Player player) {
-        Rectangle p = new Rectangle(player.getX(), player.getY(), player.getWidth(),player.getHeight());
+    public void checkCollision(Player player) throws IOException {
+        Rectangle p = new Rectangle(player.getX(), player.getY(), player.getWidth(), player.getHeight());
 
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
@@ -97,6 +97,9 @@ public class GameModel {
                 this.enemyList = new ArrayList<>();
                 this.beamList = new ArrayList<>();
                 this.platList = new ArrayList<>();
+                ObjectOutputStream out = new ObjectOutputStream(
+                        new FileOutputStream(new File("savefile.txt")));
+                out.writeObject(5);
                 switchState(new MenuState(this));
             }
         }
@@ -134,7 +137,7 @@ public class GameModel {
     }
 
     public void clearLevel() {
-       this.enemyList = new ArrayList<>();
+        this.enemyList = new ArrayList<>();
         this.beamList = new ArrayList<>();
         this.platList = new ArrayList<>();
         this.powerList = new ArrayList<>();

@@ -1,12 +1,13 @@
 package Projekt.Logic.Operation;
 
 import java.awt.*;
+import java.io.IOException;
 
 import static Projekt.Logic.Operation.Constants.ms;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         boolean gameover = false;
         boolean winner = false;

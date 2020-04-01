@@ -35,7 +35,7 @@ public abstract class PlayState extends GameState {
 
     }
 
-    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList);
+    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException;
 
     public Player getPlayer() {
         return this.player;
@@ -103,5 +103,9 @@ public abstract class PlayState extends GameState {
         } else {
             player.keyPressed(key, model);
         }
+    }
+
+    public int getTime() {
+        return this.time.getTime();
     }
 }
