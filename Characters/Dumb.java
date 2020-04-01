@@ -57,6 +57,10 @@ public class Dumb extends Enemy {
         return this.size;
     }
 
+    public void setRight(boolean r) {
+        this.right=r;
+    }
+
     @Override
     public void draw(Graphics g) {
         g.setColor(this.color);

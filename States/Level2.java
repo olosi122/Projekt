@@ -1,9 +1,6 @@
 package Projekt.States;
 
-import Projekt.Characters.Beam;
-import Projekt.Characters.Enemy;
-import Projekt.Characters.Platform;
-import Projekt.Characters.Player;
+import Projekt.Characters.*;
 import Projekt.Operation.GameModel;
 import Projekt.Operation.Timer;
 import Projekt.PowerUps.Mushroom;
@@ -27,5 +24,30 @@ public class Level2 extends PlayState {
         model.addPlat(new Platform((S_WIDTH / 2) - 50, 400, 100, 10));
         model.addPower(new Star(135,200));
         model.addPower(new Mushroom(S_WIDTH-165,200));
+    }
+
+    @Override
+    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
+        if (System.currentTimeMillis() - getMaster() > getIntervall()) {
+            setIntervall(10);
+            if (getRight()) {
+                model.addEnemy(new Dumb(true,getPlayer().getY()));
+                setRight(false);
+            } else {
+                model.addEnemy(new Dumb(false,getPlayer().getY()));
+                setRight(true);
+            }
+            setMaster();
+        }
+
+        model.removeEnemy();
+        model.removeBeam();
+        model.removePower();
+
+        getPlayer().update();
+
+        model.checkCollision(getPlayer());
+
+        getTimer().update();
     }
 }

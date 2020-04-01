@@ -13,9 +13,6 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import static Projekt.Operation.Constants.S_HEIGHT;
-import static Projekt.Operation.Constants.S_WIDTH;
-
 public class MenuState extends GameState {
     private Color bgColor;
     private Button1 lvl1;
@@ -27,7 +24,6 @@ public class MenuState extends GameState {
         bgColor = new Color(78, 172, 176);
         this.lvl1= new Button1(model,0,50);
         //this.lvl1= new Button1(model,S_WIDTH / 2 -100, S_HEIGHT / 2);
-
     }
 
     @Override
@@ -46,7 +42,5 @@ public class MenuState extends GameState {
     public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
         //drawBg(g, bgColor);
         lvl1.draw(g);
-
-
     }
 }

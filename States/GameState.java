@@ -3,7 +3,9 @@ package Projekt.States;
 import Projekt.Characters.Beam;
 import Projekt.Characters.Enemy;
 import Projekt.Characters.Platform;
+import Projekt.Characters.Player;
 import Projekt.Operation.GameModel;
+import Projekt.Operation.Timer;
 import Projekt.PowerUps.PowerUp;
 
 import java.awt.*;

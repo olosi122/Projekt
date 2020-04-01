@@ -19,6 +19,10 @@ public abstract class PlayState extends GameState {
     private Color fontColor;
     private Player player;
     private Timer time;
+    private long master = System.currentTimeMillis();
+    private boolean right = false;
+    private int q = 0;
+    private int intervall = 1000;
 
     public PlayState(GameModel model) {
         super(model);
@@ -27,21 +31,29 @@ public abstract class PlayState extends GameState {
         fontColor = new Color(123, 178, 116);
         this.player = new Player();
         this.time = new Timer();
+
     }
 
-    @Override
-    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
-        model.addEnemy(player.getY());
+    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList);
 
-        model.removeEnemy();
-        model.removeBeam();
-        model.removePower();
+    public Player getPlayer() {
+        return this.player;
+    }
 
-        player.update();
+    public Timer getTimer() {
+        return this.time;
+    }
 
-        model.checkCollision(player);
+    public void setIntervall(int i) {
+        this.intervall=this.intervall-i;
+    }
 
-        time.update();
+    public void setRight(boolean b) {
+        this.right=b;
+    }
+
+    public void setMaster() {
+        this.master = System.currentTimeMillis();
     }
 
     @Override
@@ -68,6 +80,18 @@ public abstract class PlayState extends GameState {
             power.draw(g);
         }
 
+    }
+
+    public long getMaster() {
+        return this.master;
+    }
+
+    public boolean getRight() {
+        return this.right;
+    }
+
+    public int getIntervall() {
+        return this.intervall;
     }
 
     @Override

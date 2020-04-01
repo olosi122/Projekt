@@ -20,10 +20,7 @@ public class GameModel {
     private ArrayList<Beam> beamList = new ArrayList<>();
     private ArrayList<Platform> platList = new ArrayList<>();
     private ArrayList<PowerUp> powerList = new ArrayList<>();
-    private long master = System.currentTimeMillis();
-    private boolean right = false;
-    private int q = 0;
-    private int intervall = 1000;
+
 
     public GameModel() {
         this.currentState = new MenuState(this);
@@ -49,19 +46,9 @@ public class GameModel {
         currentState.update(this, enemyList, beamList);
     }
 
-    public void addEnemy(int y) {
+    public void addEnemy(Enemy enemy) {
         //currentState.addEnemy(y);
-        if (System.currentTimeMillis() - master > intervall) {
-            this.intervall-=10;
-            if (right) {
-                enemyList.add(q, new Dumb(true, y));
-                right = false;
-            } else {
-                enemyList.add(new Dumb(false, y));
-                right = true;
-            }
-            master = System.currentTimeMillis();
-        }
+        enemyList.add(enemy);
     }
 
     public void removeEnemy() {
@@ -100,7 +87,7 @@ public class GameModel {
     }
 
     public void draw(Graphics g) {
-        currentState.draw(g, enemyList, beamList,platList,powerList);
+        currentState.draw(g, enemyList, beamList, platList, powerList);
     }
 
     public void checkCollision(Player player) {
@@ -109,15 +96,15 @@ public class GameModel {
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
             if (rec2.intersects(p)) {
-                this.enemyList= new ArrayList<>();
-                this.beamList= new ArrayList<>();
-                this.platList=new ArrayList<>();
+                this.enemyList = new ArrayList<>();
+                this.beamList = new ArrayList<>();
+                this.platList = new ArrayList<>();
                 switchState(new MenuState(this));
             }
         }
 
         for (PowerUp power : powerList) {
-            Rectangle rec5 = new Rectangle(power.getX(),power.getY(),power.getWidth(),power.getHeight());
+            Rectangle rec5 = new Rectangle(power.getX(), power.getY(), power.getWidth(), power.getHeight());
             if (rec5.intersects(p)) {
                 System.out.println("träff");
                 power.activate();
@@ -141,7 +128,7 @@ public class GameModel {
             Rectangle rec4 = new Rectangle(platform.getX(), platform.getY(), platform.getWidth(), platform.getHeight());
             if (rec4.intersects(p)) {
                 player.setGround(true);
-                player.setGroundLevel(platform.getY()-50);
+                player.setGroundLevel(platform.getY() - 50);
                 return;
             }
         }
