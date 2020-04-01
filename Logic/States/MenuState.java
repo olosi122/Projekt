@@ -1,8 +1,5 @@
 package Projekt.Logic.States;
 
-import Projekt.Buttons.Button1;
-import Projekt.Buttons.Button2;
-import Projekt.Buttons.ButtonH;
 import Projekt.Graphics.Characters.Beam;
 import Projekt.Graphics.Characters.Enemy;
 import Projekt.Graphics.Characters.Platform;
@@ -44,6 +41,8 @@ public class MenuState extends GameState {
             model.switchState(new Highscore(model));
     }
 
+    @Override
+    public void getTime() {;}
 
     @Override
     public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {

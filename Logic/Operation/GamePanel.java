@@ -32,7 +32,7 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         try {
             model.draw(g);
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

@@ -11,6 +11,7 @@ import Projekt.Logic.States.MenuState;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GameModel {
 
@@ -19,6 +20,7 @@ public class GameModel {
     private ArrayList<Beam> beamList = new ArrayList<>();
     private ArrayList<Platform> platList = new ArrayList<>();
     private ArrayList<PowerUp> powerList = new ArrayList<>();
+    private HashMap<Integer,Integer> scores = new HashMap<>();
 
 
     public GameModel() {
@@ -39,6 +41,10 @@ public class GameModel {
 
     public void keyPressed(int key) {
         currentState.keyPressed(key, this);
+    }
+
+    public HashMap<Integer, Integer> getScores() {
+        return this.scores;
     }
 
     public void update() throws IOException {
@@ -84,7 +90,7 @@ public class GameModel {
         this.beamList.add(new Beam(player.getX(), player.getY(), player.getDir())); //Skicka med model i beam för att ta bort
     }
 
-    public void draw(Graphics g) throws IOException {
+    public void draw(Graphics g) throws IOException, ClassNotFoundException {
         currentState.draw(g, enemyList, beamList, platList, powerList);
     }
 
@@ -93,13 +99,11 @@ public class GameModel {
 
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
-            if (rec2.intersects(p)) {
+            if (rec2.intersects(p) && player.getStar()==false) {
                 this.enemyList = new ArrayList<>();
                 this.beamList = new ArrayList<>();
                 this.platList = new ArrayList<>();
-                ObjectOutputStream out = new ObjectOutputStream(
-                        new FileOutputStream(new File("savefile.txt")));
-                out.writeObject(5);
+                currentState.getTime();
                 switchState(new MenuState(this));
             }
         }
@@ -107,7 +111,6 @@ public class GameModel {
         for (PowerUp power : powerList) {
             Rectangle rec5 = new Rectangle(power.getX(), power.getY(), power.getWidth(), power.getHeight());
             if (rec5.intersects(p)) {
-                System.out.println("träff");
                 power.activate();
                 power.setRemove(true);
             }

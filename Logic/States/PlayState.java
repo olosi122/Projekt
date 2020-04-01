@@ -10,7 +10,7 @@ import Projekt.Graphics.PowerUps.PowerUp;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public abstract class PlayState extends GameState {
@@ -19,10 +19,8 @@ public abstract class PlayState extends GameState {
     private Color bgColor;
     private Color fontColor;
     private Player player;
-    private Timer time;
     private long master = System.currentTimeMillis();
     private boolean right = false;
-    private int q = 0;
     private int intervall = 1000;
 
     public PlayState(GameModel model) {
@@ -31,18 +29,12 @@ public abstract class PlayState extends GameState {
         bgColor = new Color(154, 154, 154);
         fontColor = new Color(123, 178, 116);
         this.player = new Player();
-        this.time = new Timer();
-
     }
 
     public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException;
 
     public Player getPlayer() {
         return this.player;
-    }
-
-    public Timer getTimer() {
-        return this.time;
     }
 
     public void setIntervall(int i) {
@@ -63,7 +55,7 @@ public abstract class PlayState extends GameState {
 
         player.draw(g);
 
-        time.draw(g);
+        this.getTimer().draw(g);
 
         for (Platform platform : platList) {
             platform.draw(g);
@@ -82,6 +74,8 @@ public abstract class PlayState extends GameState {
         }
 
     }
+
+    protected abstract Timer getTimer();
 
     public long getMaster() {
         return this.master;
@@ -105,7 +99,5 @@ public abstract class PlayState extends GameState {
         }
     }
 
-    public int getTime() {
-        return this.time.getTime();
-    }
+    public abstract void getTime() throws IOException;
 }
