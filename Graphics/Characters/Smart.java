@@ -1,12 +1,14 @@
-package Projekt.Characters;
+package Projekt.Graphics.Characters;
 
-import Projekt.Operation.GameModel;
+import Projekt.Logic.Operation.GameModel;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Smart extends Enemy {
 
     private Player player;
+    private Image image = null;
 
     public Smart(boolean right, int y, Player player) {
         super(right, y);
@@ -23,9 +25,11 @@ public class Smart extends Enemy {
         }
     }
 
-    @Override
-    public void draw(Graphics g) {
-        g.setColor(Color.CYAN);
-        g.fillOval(this.getX(), this.getY(), getSize(), getSize());
+    public Image getImage() {
+        if (image == null) {
+            ImageIcon i = new ImageIcon("sprites/virus2.png");
+            image = i.getImage();
+        }
+        return image;
     }
 }

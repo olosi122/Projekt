@@ -1,6 +1,6 @@
 package Projekt.Buttons;
 
-import Projekt.Operation.GameModel;
+import Projekt.Logic.Operation.GameModel;
 
 public class ButtonH extends Button {
     public ButtonH(GameModel model,int x, int y) {

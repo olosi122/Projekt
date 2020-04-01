@@ -1,4 +1,4 @@
-package Projekt.Characters;
+package Projekt.Graphics.Characters;
 
 import java.awt.*;
 

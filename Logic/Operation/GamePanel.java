@@ -1,6 +1,4 @@
-package Projekt.Operation;
-
-import Projekt.Operation.GameModel;
+package Projekt.Logic.Operation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,8 +7,8 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 
-import static Projekt.Operation.Constants.S_HEIGHT;
-import static Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Logic.Operation.Constants.S_HEIGHT;
+import static Projekt.Logic.Operation.Constants.S_WIDTH;
 
 public class GamePanel extends JPanel {
 

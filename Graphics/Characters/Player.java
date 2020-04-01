@@ -1,18 +1,16 @@
-package Projekt.Characters;
+package Projekt.Graphics.Characters;
 
-import Projekt.Operation.GameModel;
+import Projekt.Logic.Operation.GameModel;
 
-import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
-import static Projekt.Operation.Constants.S_HEIGHT;
-import static Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Logic.Operation.Constants.S_HEIGHT;
+import static Projekt.Logic.Operation.Constants.S_WIDTH;
 
-public class Player extends Sprite{
+public class Player {
 
     private Point point;
     private boolean jump = false;
@@ -21,15 +19,27 @@ public class Player extends Sprite{
     private boolean ground;
     private boolean jumping = false;
     private int groundLevel;
+    private int width = 75;
+    private int height = 75;
+    private static Image image = null;
 
     public Player() {
-        this.point = new Point(500, S_HEIGHT - 100);
+        this.point = new Point(500, S_HEIGHT - 150);
     }
 
     public void draw(Graphics g) throws IOException {
-        g.drawImage(getImage(),point.x,point.y,null);
+        g.drawImage(getImage(), point.x, point.y,width,height, null);
         g.setColor(Color.black);
-        //g.fillOval(point.x, point.y, 50, 50);
+    }
+
+    private static Image getImage() {
+        if (image == null) {
+            ImageIcon i = new ImageIcon("sprites/playersprite.png");
+           // ImageIcon i = new ImageIcon("sprites/playerspriteR.png");
+            //ImageIcon i = new ImageIcon("sprites/playerspriteL.png");
+            image = i.getImage();
+        }
+        return image;
     }
 
     public int getX() {
@@ -68,13 +78,13 @@ public class Player extends Sprite{
     }
 
     public void update() {
-        if ((ground == false && jump == false && jumping==false) || ground == false && jump == true && jumping==false) {
+        if ((ground == false && jump == false && jumping == false) || ground == false && jump == true && jumping == false) {
             point.y = point.y + 1;
         } else if (ground && jump && jumping) {
             jump = false;
             jumping = false;
-            x=0;
-            this.point.y=groundLevel;
+            x = 0;
+            this.point.y = groundLevel;
         } else if (ground == false && jump == true && jumping) {
             if (dir == true) {
                 point.y = (int) (point.y - (-Math.pow(x, 2.0) + (5 * x)));
@@ -92,7 +102,15 @@ public class Player extends Sprite{
     }
 
     public void setGroundLevel(int y) {
-        this.groundLevel=y;
+        this.groundLevel = y;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
     }
 
     public class Point {

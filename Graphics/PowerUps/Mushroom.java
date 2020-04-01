@@ -1,11 +1,11 @@
-package Projekt.PowerUps;
+package Projekt.Graphics.PowerUps;
 
 import java.awt.*;
 
-public class Star extends PowerUp {
-    private Color col = Color.yellow;
+public class Mushroom extends PowerUp {
+    private Color col = Color.red;
 
-    public Star(int x, int y) {
+    public Mushroom(int x, int y) {
         super(x,y);
     }
 

@@ -1,11 +1,8 @@
-package Projekt.Operation;
-
-import Projekt.Operation.GameFrame;
-import Projekt.Operation.GameModel;
+package Projekt.Logic.Operation;
 
 import java.awt.*;
 
-import static Projekt.Operation.Constants.ms;
+import static Projekt.Logic.Operation.Constants.ms;
 
 public class Main {
 

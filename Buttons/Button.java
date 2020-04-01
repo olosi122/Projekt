@@ -1,6 +1,6 @@
 package Projekt.Buttons;
 
-import Projekt.Operation.GameModel;
+import Projekt.Logic.Operation.GameModel;
 
 import javax.swing.*;
 import java.awt.*;

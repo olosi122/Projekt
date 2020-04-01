@@ -1,21 +1,14 @@
 package Projekt.Buttons;
 
-import Projekt.Characters.Beam;
-import Projekt.Characters.Enemy;
-import Projekt.Characters.Platform;
-import Projekt.Operation.GameModel;
-import Projekt.PowerUps.PowerUp;
-import Projekt.States.Level1;
+import Projekt.Logic.Operation.GameModel;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
-import static Projekt.Operation.Constants.S_HEIGHT;
-import static Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Logic.Operation.Constants.S_HEIGHT;
+import static Projekt.Logic.Operation.Constants.S_WIDTH;
 
 public class Button1 extends JComponent {
 

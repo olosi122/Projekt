@@ -1,19 +1,17 @@
-package Projekt.States;
+package Projekt.Logic.States;
 
-import Projekt.Characters.Beam;
-import Projekt.Characters.Enemy;
-import Projekt.Characters.Platform;
-import Projekt.Characters.Player;
-import Projekt.Operation.GameModel;
-import Projekt.Operation.Timer;
-import Projekt.PowerUps.PowerUp;
+import Projekt.Graphics.Characters.Beam;
+import Projekt.Graphics.Characters.Enemy;
+import Projekt.Graphics.Characters.Platform;
+import Projekt.Logic.Operation.GameModel;
+import Projekt.Graphics.PowerUps.PowerUp;
 
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static Projekt.Operation.Constants.S_WIDTH;
-import static Projekt.Operation.Constants.S_HEIGHT;
+import static Projekt.Logic.Operation.Constants.S_WIDTH;
+import static Projekt.Logic.Operation.Constants.S_HEIGHT;
 
 public abstract class GameState {
 

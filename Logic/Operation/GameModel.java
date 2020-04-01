@@ -1,14 +1,12 @@
-package Projekt.Operation;
+package Projekt.Logic.Operation;
 
-import Projekt.Characters.Beam;
-import Projekt.Characters.Dumb;
-import Projekt.Characters.Enemy;
-import Projekt.Characters.Player;
-import Projekt.Characters.Platform;
-import Projekt.PowerUps.PowerUp;
-import Projekt.PowerUps.Star;
-import Projekt.States.GameState;
-import Projekt.States.MenuState;
+import Projekt.Graphics.Characters.Beam;
+import Projekt.Graphics.Characters.Enemy;
+import Projekt.Graphics.Characters.Player;
+import Projekt.Graphics.Characters.Platform;
+import Projekt.Graphics.PowerUps.PowerUp;
+import Projekt.Logic.States.GameState;
+import Projekt.Logic.States.MenuState;
 
 import java.awt.*;
 import java.io.IOException;
@@ -48,7 +46,6 @@ public class GameModel {
     }
 
     public void addEnemy(Enemy enemy) {
-        //currentState.addEnemy(y);
         enemyList.add(enemy);
     }
 
@@ -92,7 +89,7 @@ public class GameModel {
     }
 
     public void checkCollision(Player player) {
-        Rectangle p = new Rectangle(player.getX(), player.getY(), 50, 50);
+        Rectangle p = new Rectangle(player.getX(), player.getY(), player.getWidth(),player.getHeight());
 
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
@@ -129,7 +126,7 @@ public class GameModel {
             Rectangle rec4 = new Rectangle(platform.getX(), platform.getY(), platform.getWidth(), platform.getHeight());
             if (rec4.intersects(p)) {
                 player.setGround(true);
-                player.setGroundLevel(platform.getY() - 50);
+                player.setGroundLevel(platform.getY() - player.getHeight());
                 return;
             }
         }

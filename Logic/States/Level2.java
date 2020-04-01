@@ -1,18 +1,14 @@
-package Projekt.States;
+package Projekt.Logic.States;
 
-import Projekt.Characters.*;
-import Projekt.Operation.GameModel;
-import Projekt.Operation.Timer;
-import Projekt.PowerUps.Mushroom;
-import Projekt.PowerUps.PowerUp;
-import Projekt.PowerUps.Star;
+import Projekt.Graphics.Characters.*;
+import Projekt.Logic.Operation.GameModel;
+import Projekt.Graphics.PowerUps.Mushroom;
+import Projekt.Graphics.PowerUps.Star;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import static Projekt.Operation.Constants.S_HEIGHT;
-import static Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Logic.Operation.Constants.S_HEIGHT;
+import static Projekt.Logic.Operation.Constants.S_WIDTH;
 
 public class Level2 extends PlayState {
 

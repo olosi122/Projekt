@@ -1,12 +1,12 @@
-package Projekt.States;
+package Projekt.Logic.States;
 
-import Projekt.Characters.Beam;
-import Projekt.Characters.Enemy;
-import Projekt.Characters.Platform;
-import Projekt.Characters.Player;
-import Projekt.Operation.GameModel;
-import Projekt.Operation.Timer;
-import Projekt.PowerUps.PowerUp;
+import Projekt.Graphics.Characters.Beam;
+import Projekt.Graphics.Characters.Enemy;
+import Projekt.Graphics.Characters.Platform;
+import Projekt.Graphics.Characters.Player;
+import Projekt.Logic.Operation.GameModel;
+import Projekt.Logic.Operation.Timer;
+import Projekt.Graphics.PowerUps.PowerUp;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

@@ -1,10 +1,10 @@
-package Projekt.Characters;
+package Projekt.Graphics.Characters;
 
-import Projekt.Operation.GameModel;
+import Projekt.Logic.Operation.GameModel;
 
 import java.awt.*;
 
-import static Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Logic.Operation.Constants.S_WIDTH;
 
 public abstract class Enemy {
 
@@ -31,7 +31,11 @@ public abstract class Enemy {
         }
     }
 
-    public abstract void draw(Graphics g);
+    public void draw(Graphics g) {
+        g.drawImage(getImage(), point.x, point.y,size,size, null);
+    }
+
+    public abstract Image getImage();
 
     public void setRemove(boolean b) {
         this.remove = true;

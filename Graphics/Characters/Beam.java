@@ -1,10 +1,8 @@
-package Projekt.Characters;
-
-import Projekt.Operation.GameModel;
+package Projekt.Graphics.Characters;
 
 import java.awt.*;
 
-import static Projekt.Operation.Constants.S_WIDTH;
+import static Projekt.Logic.Operation.Constants.S_WIDTH;
 
 public class Beam {
 

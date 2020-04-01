@@ -1,4 +1,4 @@
-package Projekt.PowerUps;
+package Projekt.Graphics.PowerUps;
 
 import java.awt.*;
 
