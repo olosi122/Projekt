@@ -24,7 +24,11 @@ public class GamePanel extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
-                model.keyPressed(e.getKeyCode());
+                try {
+                    model.keyPressed(e.getKeyCode());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }

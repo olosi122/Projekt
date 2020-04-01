@@ -1,5 +1,7 @@
 package Projekt.Graphics.PowerUps;
 
+import Projekt.Graphics.Characters.Player;
+
 import java.awt.*;
 
 public abstract class PowerUp {
@@ -9,9 +11,11 @@ public abstract class PowerUp {
     private int width = 30;
     private int height = 30;
     private boolean remove = false;
+    private Player player;
 
-    public PowerUp(int x, int y) {
+    public PowerUp(int x, int y, Player player) {
         this.point=new Point(x,y);
+        this.player=player;
     }
 
     public abstract void draw(Graphics g);
@@ -41,6 +45,10 @@ public abstract class PowerUp {
     }
 
     public abstract void activate();
+
+    public Player getPlayer() {
+        return player;
+    }
 
     public class Point {
         int x;

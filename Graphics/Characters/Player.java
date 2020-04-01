@@ -22,12 +22,13 @@ public class Player {
     private int width = 75;
     private int height = 75;
     private static Image image = null;
+    private boolean activeStar = false;
 
     public Player() {
         this.point = new Point(500, S_HEIGHT - 150);
     }
 
-    public void draw(Graphics g) throws IOException {
+    public void draw(Graphics g) {
         g.drawImage(getImage(), point.x, point.y,width,height, null);
         g.setColor(Color.black);
     }
@@ -111,6 +112,14 @@ public class Player {
 
     public int getHeight() {
         return this.height;
+    }
+
+    public boolean getActiveStar() {
+        return this.activeStar;
+    }
+
+    public void setActiveStar(boolean b) {
+        this.activeStar=b;
     }
 
     public class Point {

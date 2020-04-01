@@ -1,12 +1,14 @@
 package Projekt.Graphics.PowerUps;
 
+import Projekt.Graphics.Characters.Player;
+
 import java.awt.*;
 
 public class Star extends PowerUp {
     private Color col = Color.yellow;
 
-    public Star(int x, int y) {
-        super(x,y);
+    public Star(int x, int y, Player player) {
+        super(x,y,player);
     }
 
     public void draw(Graphics g) {
@@ -16,6 +18,6 @@ public class Star extends PowerUp {
 
     @Override
     public void activate() {
-        //do something
+        getPlayer().setActiveStar(true);
     }
 }

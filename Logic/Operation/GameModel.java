@@ -39,7 +39,7 @@ public class GameModel {
         this.powerList.add(power);
     }
 
-    public void keyPressed(int key) {
+    public void keyPressed(int key) throws IOException {
         currentState.keyPressed(key, this);
     }
 
@@ -99,10 +99,8 @@ public class GameModel {
 
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
-            if (rec2.intersects(p) && player.getStar()==false) {
-                this.enemyList = new ArrayList<>();
-                this.beamList = new ArrayList<>();
-                this.platList = new ArrayList<>();
+            if (rec2.intersects(p) && player.getActiveStar()==false) {
+                clearLevel();
                 currentState.getTime();
                 switchState(new MenuState(this));
             }
@@ -120,7 +118,6 @@ public class GameModel {
             Rectangle rec1 = new Rectangle(beam.getX(), beam.getY(), beam.getWidth(), beam.getHeight());
             for (Enemy enemy : enemyList) {
                 Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
-
                 if (rec1.intersects(rec2)) {
                     beam.setRemove(true);
                     enemy.setRemove(true);

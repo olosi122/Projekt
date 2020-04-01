@@ -25,8 +25,8 @@ public class Level2 extends PlayState {
         model.addPlat(new Platform(100, 250, 100, 10));
         model.addPlat(new Platform(S_WIDTH - 200, 250, 100, 10));
         model.addPlat(new Platform((S_WIDTH / 2) - 50, 400, 100, 10));
-        model.addPower(new Star(135,200));
-        model.addPower(new Mushroom(S_WIDTH-165,200));
+        model.addPower(new Star(135,200, getPlayer()));
+        model.addPower(new Mushroom(S_WIDTH-165,200, getPlayer()));
         this.time = new Timer();
     }
 

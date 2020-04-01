@@ -24,7 +24,7 @@ public class Level1 extends PlayState {
         model.addPlat(new Platform(100, 400, 100, 10));
         model.addPlat(new Platform(S_WIDTH - 200, 400, 100, 10));
         model.addPlat(new Platform((S_WIDTH / 2) - 50, 250, 100, 10));
-        model.addPower(new Star(S_WIDTH / 2 - 15, 200));
+        model.addPower(new Star(S_WIDTH / 2 - 15, 200,getPlayer()));
         this.time = new Timer();
     }
 

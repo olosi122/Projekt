@@ -1,12 +1,14 @@
 package Projekt.Graphics.PowerUps;
 
+import Projekt.Graphics.Characters.Player;
+
 import java.awt.*;
 
 public class Mushroom extends PowerUp {
     private Color col = Color.red;
 
-    public Mushroom(int x, int y) {
-        super(x,y);
+    public Mushroom(int x, int y, Player player) {
+        super(x, y, player);
     }
 
     public void draw(Graphics g) {

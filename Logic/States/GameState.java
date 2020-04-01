@@ -25,7 +25,7 @@ public abstract class GameState {
 
     public abstract void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) throws IOException, ClassNotFoundException;
 
-    public abstract void keyPressed(int key,GameModel model);
+    public abstract void keyPressed(int key,GameModel model) throws IOException;
 
     public void drawBg(Graphics g, Color color) {
         g.setColor(color);
