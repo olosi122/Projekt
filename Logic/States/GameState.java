@@ -21,11 +21,11 @@ public abstract class GameState {
         this.model = model;
     }
 
-    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException;
+    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException, ClassNotFoundException;
 
     public abstract void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) throws IOException, ClassNotFoundException;
 
-    public abstract void keyPressed(int key,GameModel model) throws IOException;
+    public abstract void keyPressed(int key,GameModel model) throws IOException, ClassNotFoundException;
 
     public void drawBg(Graphics g, Color color) {
         g.setColor(color);
@@ -36,6 +36,6 @@ public abstract class GameState {
         return this.model;
     }
 
-    public abstract void getTime() throws IOException;
+    public abstract void getTime() throws IOException, ClassNotFoundException;
 }
 

@@ -23,7 +23,7 @@ public class GameModel {
     private HashMap<Integer,Integer> scores = new HashMap<>();
 
 
-    public GameModel() {
+    public GameModel() throws IOException {
         this.currentState = new MenuState(this);
     }
 
@@ -39,7 +39,7 @@ public class GameModel {
         this.powerList.add(power);
     }
 
-    public void keyPressed(int key) throws IOException {
+    public void keyPressed(int key) throws IOException, ClassNotFoundException {
         currentState.keyPressed(key, this);
     }
 
@@ -47,7 +47,7 @@ public class GameModel {
         return this.scores;
     }
 
-    public void update() throws IOException {
+    public void update() throws IOException, ClassNotFoundException {
         currentState.update(this, enemyList, beamList);
     }
 
@@ -77,6 +77,13 @@ public class GameModel {
         }
     }
 
+    public void clearLevel() {
+        this.enemyList = new ArrayList<>();
+        this.beamList = new ArrayList<>();
+        this.platList = new ArrayList<>();
+        this.powerList = new ArrayList<>();
+    }
+
     public void removePower() {
         for (int i = 0; i < powerList.size(); i++) {
             PowerUp power = powerList.get(i);
@@ -94,14 +101,14 @@ public class GameModel {
         currentState.draw(g, enemyList, beamList, platList, powerList);
     }
 
-    public void checkCollision(Player player) throws IOException {
+    public void checkCollision(Player player) throws IOException, ClassNotFoundException {
         Rectangle p = new Rectangle(player.getX(), player.getY(), player.getWidth(), player.getHeight());
 
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
             if (rec2.intersects(p) && player.getActiveStar()==false) {
-                clearLevel();
                 currentState.getTime();
+                clearLevel();
                 switchState(new MenuState(this));
             }
         }
@@ -134,13 +141,6 @@ public class GameModel {
             }
         }
         player.setGround(false);
-    }
-
-    public void clearLevel() {
-        this.enemyList = new ArrayList<>();
-        this.beamList = new ArrayList<>();
-        this.platList = new ArrayList<>();
-        this.powerList = new ArrayList<>();
     }
 }
 

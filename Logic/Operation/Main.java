@@ -7,7 +7,7 @@ import static Projekt.Logic.Operation.Constants.ms;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         boolean gameover = false;
         boolean winner = false;

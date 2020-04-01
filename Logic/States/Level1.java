@@ -5,11 +5,9 @@ import Projekt.Logic.Operation.GameModel;
 import Projekt.Graphics.PowerUps.Star;
 import Projekt.Logic.Operation.Timer;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static Projekt.Logic.Operation.Constants.S_HEIGHT;
 import static Projekt.Logic.Operation.Constants.S_WIDTH;
@@ -33,7 +31,7 @@ public class Level1 extends PlayState {
     }
 
     @Override
-    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException {
+    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException, ClassNotFoundException {
         if (System.currentTimeMillis() - getMaster() > getIntervall()) {
             setIntervall(10);
             if (getRight()) {
@@ -58,13 +56,19 @@ public class Level1 extends PlayState {
     }
 
     @Override
-    public void getTime() throws IOException {
+    public void getTime() throws IOException, ClassNotFoundException {
 
-        this.getModel().getScores().put(1,time.getTime());
+        ObjectInputStream in = new ObjectInputStream (
+                new FileInputStream(new File("savefile.xyz")));
+        HashMap<Integer, Integer> scores = (HashMap<Integer, Integer>) in.readObject();
 
-        ObjectOutputStream out = new ObjectOutputStream(
-                new FileOutputStream(new File("savefile.xyz")));
-        out.writeObject(this.getModel().getScores());
+        if (scores.get(1) == null || this.time.getTime() >= scores.get(1)) {
+            scores.remove(1);
+            scores.put(1,this.time.getTime());
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream(new File("savefile.xyz")));
+            out.writeObject(scores);
+        }
     }
 }
 

@@ -31,7 +31,7 @@ public abstract class PlayState extends GameState {
         this.player = new Player();
     }
 
-    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException;
+    public abstract void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) throws IOException, ClassNotFoundException;
 
     public Player getPlayer() {
         return this.player;
@@ -90,7 +90,7 @@ public abstract class PlayState extends GameState {
     }
 
     @Override
-    public void keyPressed(int key, GameModel model) throws IOException {
+    public void keyPressed(int key, GameModel model) throws IOException, ClassNotFoundException {
         if (key == KeyEvent.VK_ESCAPE) {
             this.getTime();
             model.clearLevel();
@@ -100,5 +100,5 @@ public abstract class PlayState extends GameState {
         }
     }
 
-    public abstract void getTime() throws IOException;
+    public abstract void getTime() throws IOException, ClassNotFoundException;
 }

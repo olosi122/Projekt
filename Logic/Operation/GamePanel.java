@@ -26,7 +26,7 @@ public class GamePanel extends JPanel {
                 super.keyPressed(e);
                 try {
                     model.keyPressed(e.getKeyCode());
-                } catch (IOException ex) {
+                } catch (IOException | ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
             }
