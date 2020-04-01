@@ -15,7 +15,6 @@ import static Projekt.Logic.Operation.Constants.S_WIDTH;
 
 public class GameFrame extends JFrame {
 
-
     public GameFrame(GameModel model) {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);

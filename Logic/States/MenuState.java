@@ -24,6 +24,7 @@ import static Projekt.Logic.Operation.Constants.S_HEIGHT;
 
 
 public class MenuState extends GameState {
+
     private Color bgColor = Color.lightGray;
     private Color textColor = Color.black;
     private Font textFont = new Font("Monospace", Font.PLAIN, 35);

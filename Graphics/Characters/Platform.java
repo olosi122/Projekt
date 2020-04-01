@@ -13,12 +13,11 @@ public class Platform {
     private int width;
     private int height;
     private Color color = Color.gray;
-    private int pointX;
-    private int pointY;
+    private Point point = new Point(0,0);
 
     public Platform(int x, int y,int width, int height) {
-        this.pointX = x;
-        this.pointY = y;
+        this.point.x = x;
+        this.point.y = y;
         this.width = width;
         this.height = height;
     }
@@ -32,15 +31,25 @@ public class Platform {
     }
 
     public int getX() {
-        return this.pointX;
+        return this.point.x;
     }
 
     public int getY() {
-        return this.pointY;
+        return this.point.y;
     }
 
     public void draw(Graphics g) {
         g.setColor(this.color);
-        g.fillRect(this.pointX, this.pointY, this.width, this.height);
+        g.fillRect(this.point.x, this.point.y, this.width, this.height);
+    }
+
+    public class Point {
+        int x;
+        int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
     }
 }
