@@ -97,6 +97,7 @@ public abstract class PlayState extends GameState {
     @Override
     public void keyPressed(int key, GameModel model) {
         if (key == KeyEvent.VK_ESCAPE) {
+            model.clearLevel();
             model.switchState(new MenuState(model));
         } else {
             player.keyPressed(key, model);

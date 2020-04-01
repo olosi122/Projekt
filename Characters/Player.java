@@ -89,7 +89,6 @@ public class Player {
         this.groundLevel=y;
     }
 
-
     public class Point {
         int x;
         int y;

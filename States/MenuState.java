@@ -22,8 +22,11 @@ public class MenuState extends GameState {
     public MenuState(GameModel model) {
         super(model);
         bgColor = new Color(78, 172, 176);
-        this.lvl1= new Button1(model,0,50);
-        //this.lvl1= new Button1(model,S_WIDTH / 2 -100, S_HEIGHT / 2);
+    }
+
+    @Override
+    public void update(GameModel model, ArrayList<Enemy> enemies, ArrayList<Beam> beamList) {
+
     }
 
     @Override
@@ -33,14 +36,18 @@ public class MenuState extends GameState {
             model.switchState(new Level2(model));
         if (key == KeyEvent.VK_ESCAPE)
             System.exit(0);
+        if (key == KeyEvent.VK_1)
+            model.switchState(new Level1(model));
+        if (key == KeyEvent.VK_2)
+            model.switchState(new Level2(model));
+        if (key == KeyEvent.VK_3)
+            model.switchState(new Highscore(model));
     }
 
-    @Override
-    public void update(GameModel enemies, ArrayList<Enemy> enemyArrayList, ArrayList<Beam> beamList) {;}
 
     @Override
     public void draw(Graphics g, ArrayList<Enemy> enemies, ArrayList<Beam> beamList, ArrayList<Platform> platList, ArrayList<PowerUp> powerList) {
-        //drawBg(g, bgColor);
-        lvl1.draw(g);
+        drawBg(g, bgColor);
+
     }
 }

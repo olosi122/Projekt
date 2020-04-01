@@ -134,6 +134,13 @@ public class GameModel {
         }
         player.setGround(false);
     }
+
+    public void clearLevel() {
+       this.enemyList = new ArrayList<>();
+        this.beamList = new ArrayList<>();
+        this.platList = new ArrayList<>();
+        this.powerList = new ArrayList<>();
+    }
 }
 
 
