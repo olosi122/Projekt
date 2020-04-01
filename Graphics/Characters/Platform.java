@@ -1,5 +1,11 @@
 package Projekt.Graphics.Characters;
 
+/**
+ * Platform är enkel klass som endast genom Java.awt:s egna geometri ritar ut platformar för spelaren att stå på.
+ * Även här finner vi många getters vilket behövs då vi undersöker kollistionen med spelaren och alla plattformar
+ * kontinuerligt under spelets gång.
+ */
+
 import java.awt.*;
 
 public class Platform {

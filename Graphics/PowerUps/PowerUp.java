@@ -1,5 +1,11 @@
 package Projekt.Graphics.PowerUps;
 
+/**
+ * Parent-klassen till alla Powerups. Största funktionen är att dra ner på mängden kod som behövs skrivas för alla
+ * Powerups, ty det mesta är getters och setters för att hantera kollisionerna med spelaren och dess borttagning från
+ * kartan.
+ */
+
 import Projekt.Graphics.Characters.Player;
 
 import java.awt.*;
@@ -17,7 +23,11 @@ public abstract class PowerUp {
         this.player=player;
     }
 
-    public abstract void draw(Graphics g);
+    public void draw(Graphics g) {
+            g.drawImage(getImage(),getX(),getY(),getWidth(),getHeight(),null);
+        }
+
+    public abstract Image getImage();
 
     public int getWidth() {
         return this.width;

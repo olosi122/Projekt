@@ -1,5 +1,10 @@
 package Projekt.Logic.Operation;
 
+/**
+ * Här spara vad som bäst beskrivs som globala konstanter. Dessa används på flera ställen i programmet och
+ * implementeras lättast som ett interface.
+ */
+
 public interface Constants {
     int S_WIDTH = 1200;
     int S_HEIGHT = 600;

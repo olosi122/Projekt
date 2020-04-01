@@ -1,5 +1,9 @@
 package Projekt.Graphics.PowerUps;
 
+/**
+ * Det enda underklasserna till Powerups behöver hanter är dess individuella grafik och aktivering/nytta.
+ */
+
 import Projekt.Graphics.Characters.Player;
 
 import javax.swing.*;
@@ -11,10 +15,6 @@ public class Mushroom extends PowerUp {
 
     public Mushroom(int x, int y, Player player) {
         super(x, y, player);
-    }
-
-    public void draw(Graphics g) {
-        g.drawImage(getImage(),getX(),getY(),getWidth(),getHeight(),null);
     }
 
     public Image getImage() {

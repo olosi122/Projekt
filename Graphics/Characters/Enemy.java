@@ -1,5 +1,12 @@
 package Projekt.Graphics.Characters;
 
+/**
+ * Parentklassen till fienderna innehåller många setters och getters som används för att skicka främst till GameModel
+ * ty en stor del av beräkningarna. Annars är en av de mer udda klassvariablerna "remove". Detta är en boolean
+ * som aktiveras när en kollision sker, men som behövs för att kunna ta bort fienden efter det att beräkningar för kollisionerna
+ * är genomförda. Det går nämligen inte att justera listorna under tiden man itererar över dem med for:loopar.
+ */
+
 import Projekt.Logic.Operation.GameModel;
 
 import java.awt.*;
@@ -11,7 +18,7 @@ public abstract class Enemy {
     private boolean remove = false;
     private int size = 50;
     private boolean right;
-    private Dumb.Point point = new Dumb.Point(0, 0);
+    private Point point = new Point(0, 0);
 
     public Enemy(boolean right, int y) {
         this.right = right;

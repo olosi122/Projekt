@@ -1,5 +1,15 @@
 package Projekt.Graphics.Characters;
 
+/**
+ * En stor player-klass som hanerar allting relaterat till spelaren. Här hittar vi många olika klassvariabler som
+ * används för att kunna skilja på de olika situationerna som spelaren befinner sig i. Dessa används i logiken
+ * inuti funktionerna. Ytterst många setters och getters som används för att kunna kontrollera de privata variablerna
+ * i en komplex struktur som denna.
+ *
+ * Lite unikt för den här är haneringen av knapptryck som registreras på GamePanel och efter att ha passerat PlayState
+ * (GameState är abstract) så hanteras mycket av spelarens kontroll av den här klassen.
+ */
+
 import Projekt.Logic.Operation.GameModel;
 
 import javax.swing.*;

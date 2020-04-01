@@ -1,5 +1,11 @@
 package Projekt.Graphics.Characters;
 
+/**
+ * Smart är den andra underklassen till Enemy och har en ytterligare funktion som det överskuggar.
+ * Funktionen update i det här fallet körs först i parent-klassen (som justerar alla fienders förändring i x-led
+ * över spelets gång) med ett tillägg med att sakta målsöka spelarens y-kordinater.
+ */
+
 import Projekt.Logic.Operation.GameModel;
 
 import javax.swing.*;

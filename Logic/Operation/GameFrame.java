@@ -1,5 +1,10 @@
 package Projekt.Logic.Operation;
 
+/**
+ * GameFrame har sitt främsta syfte att producera själva fönstret som panelen (och allt annat för den delen).
+ * Sedan vill vi att musiken ska pågå så länge fönstret är uppe (oavsett vilket State vi befinner oss i).
+ */
+
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.io.File;
