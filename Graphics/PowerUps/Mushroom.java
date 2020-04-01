@@ -27,6 +27,6 @@ public class Mushroom extends PowerUp {
 
     @Override
     public void activate() {
-        //do something
+        getPlayer().setActiveMushroom(true);
     }
 }

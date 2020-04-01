@@ -29,6 +29,6 @@ public class Star extends PowerUp {
 
     @Override
     public void activate() {
-        getPlayer().setActiveStar();
+        getPlayer().setActiveStar(true);
     }
 }

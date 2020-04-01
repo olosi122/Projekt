@@ -22,6 +22,7 @@ public class Player {
     private int height = 75;
     private static Image image = null;
     private boolean activeStar = false;
+    private boolean activeMushroom = false;
     private long master;
 
     public Player() {
@@ -78,6 +79,8 @@ public class Player {
     public void update() {
 
         this.checkPower();
+        System.out.println(activeMushroom);
+        System.out.println(activeStar);
 
         if ((ground == false && jump == false && jumping == false) || ground == false && jump == true && jumping == false) {
             point.y = point.y + 1;
@@ -105,7 +108,7 @@ public class Player {
     private void checkPower() {
         if (activeStar == true && (System.currentTimeMillis() - master > 10000)) {
             this.activeStar = false;
-        } 
+        }
     }
 
     public void setGroundLevel(int y) {
@@ -124,9 +127,19 @@ public class Player {
         return this.activeStar;
     }
 
-    public void setActiveStar() {
-        this.master = System.currentTimeMillis();
-        this.activeStar = true;
+    public void setActiveStar(boolean b) {
+        if (b) {
+            this.master = System.currentTimeMillis();
+        }
+        this.activeStar = b;
+    }
+
+    public boolean getActiveMushroom() {
+        return this.activeMushroom;
+    }
+
+    public void setActiveMushroom(boolean b) {
+        this.activeMushroom = b;
     }
 
     public class Point {

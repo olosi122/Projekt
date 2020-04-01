@@ -106,6 +106,10 @@ public class GameModel {
 
         for (Enemy enemy : enemyList) {
             Rectangle rec2 = new Rectangle(enemy.getX(), enemy.getY(), enemy.getWidth(), enemy.getHeight());
+            if (rec2.intersects(p) && player.getActiveMushroom()==true) {
+                player.setActiveMushroom(false);
+                player.setActiveStar(true);
+            }
             if (rec2.intersects(p) && player.getActiveStar()==false) {
                 currentState.getTime();
                 clearLevel();
